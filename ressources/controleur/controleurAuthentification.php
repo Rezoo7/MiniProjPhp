@@ -1,6 +1,7 @@
 <?php
 require_once PATH_VUE."/vue.php";
 require_once PATH_MODELE."/Connecter.php";
+require_once PATH_MODELE."/Modele.php";
 
 
 class ControleurAuthentification{
