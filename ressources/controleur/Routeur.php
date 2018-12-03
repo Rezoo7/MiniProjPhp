@@ -1,6 +1,8 @@
 <?php
 
-require_once 'controleurAuthentification.php';
+require_once PATH_CONTROLEUR."controleurAuthentification.php";
+
+
 
 class Routeur{
 
@@ -17,6 +19,12 @@ class Routeur{
 
 
 
+
+
+
+
+
+    /*
     if(isset($_POST['pseudo']) && !empty($_POST['pseudo']) && !isset($_POST['demarrer'])){
 
       if($this->ctrlAthentification->authentifier($_POST['pseudo'], $_POST['mdp'])){
@@ -27,14 +35,14 @@ class Routeur{
 
       }
     }else{
-        
+
 
          $this->ctrlAthentification->accueil();
-    
+
     }
 
 
-   
+
 
     if(isset($_POST['demarrer'])){
 
@@ -42,7 +50,7 @@ class Routeur{
     }
     
 
-  
+  */
 
     }
 
