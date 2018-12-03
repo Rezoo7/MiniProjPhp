@@ -21,12 +21,25 @@ function accueil(){
 }
 
 
-function authentifier($pseudotest, $motdepasse){
+    /**
+     * Test l'authentification est bonne ou fausse
+     *
+     * @param $pseudotest
+     * @param $motdepasse
+     * @return bool
+     */
 
-  if($this->modele->existe($pseudotest, $motdepasse)){
-    return true;
+function authentifier($pseudo, $motdepasse){
+
+  if($this->modele->connection_ok($pseudo, $motdepasse)){
+
+    $_SESSION['pseudo'] = $pseudo;
   }
-  return false;
+  else{
+
+    $this->accueil();
+    echo "Authentification Invalide";
+  }
 
 }
 
