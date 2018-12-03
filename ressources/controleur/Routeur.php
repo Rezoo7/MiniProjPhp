@@ -15,11 +15,47 @@ class Routeur{
     }
 
 
-  public function routeurRequête(){
+  public function routeurRequête()
+  {
+
+      if (isset($_GET['commencer'])) {
+
+          switch ($_GET['commencer']) {
+
+              case 'deconnexion':
+                  unset($_SESSION['pseudo']);
+                  session_destroy();
+                  break;
+
+              case  'recommencer':
+                  unset($_SESSION['tabvilles']);
+                  break;
+
+              default:
+                  break;
+          }
+      }
 
 
+      if (isset($_POST['pseudo']) and isset($_POST['mdp'])) {
+          if ($_POST['pseudo'] == "" or $_POST['mdp']) {
+              $this->ctrlAthentification->accueil();
+              echo "Pseudo / Mot de Pass vide";
 
+          } else {
 
+              $this->ctrlAthentification->authentifier($_POST['pseudo'], $_POST['mdp']);
+          }
+      }
+
+      if(!isset($_SESSION['pseudo'])){
+
+          $this->ctrlAthentification->accueil();
+
+      }else{
+
+        //controleur d'affichage jeu() + modifier jeu()
+      }
 
 
 
