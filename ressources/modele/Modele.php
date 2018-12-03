@@ -35,7 +35,6 @@ class Modele
 
             $convertMdp = htmlspecialchars($mdp);
 
-            echo "PSEUDO OK";
 
             $password = $this->connexion()->prepare("SELECT motdePasse FROM joueurs WHERE pseudo=?;");
             $password->bindParam(1,$convertPseudo);
@@ -88,6 +87,7 @@ class Modele
         $statement->bindParam(1,$lepseudo);
         $statement->execute();
         $resultats = count($statement->fetchAll())>0 ;
+
 
         $statement->closeCursor();
 

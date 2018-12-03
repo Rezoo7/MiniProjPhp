@@ -36,6 +36,10 @@ function authentifier($pseudo, $motdepasse){
   }
   else{
     echo "pseudo mauvaiiiis";
+    echo "<br>";
+    echo $pseudo;
+    echo "<br>";
+    echo $motdepasse;
   }
 
 
