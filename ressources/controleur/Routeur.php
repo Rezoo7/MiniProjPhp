@@ -6,6 +6,7 @@ class Routeur{
 
   private $ctrlAthentification;
 
+
   public function __construct(){
 
     $this->ctrlAthentification = new controleurAuthentification();
@@ -14,9 +15,7 @@ class Routeur{
 
   public function routeurRequête(){
 
-    
 
-   
 
     if(isset($_POST['pseudo']) && !empty($_POST['pseudo']) && !isset($_POST['demarrer'])){
 
