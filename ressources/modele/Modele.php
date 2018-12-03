@@ -14,7 +14,7 @@ class Modele
     private $connexion;
     public function __construct()
     {
-        $this->connexion = new PDO('mysql:host',LOGIN,MDP);
+        $this->connexion = new PDO('mysql:host'.HOST.'dbname='.BD,LOGIN,PASSWORD);
     }
 
     /**
@@ -29,29 +29,34 @@ class Modele
 
     public function connection_ok($pseudo,$mdp){
 
-        if($this->pseudo_ok($pseudo)){
+        $convertPseudo =  htmlspecialchars($pseudo);
 
-            $password = $this->connexion()->prepare("SELECT motdePass FROM joueurs WHERE pseudo = ?;");
-            $password->bindParam(1,pseudo);
+        if($this->pseudo_ok($convertPseudo)){
+
+            $convertMdp = htmlspecialchars($mdp);
+
+            echo "PSEUDO OK";
+
+            $password = $this->connexion()->prepare("SELECT motdePasse FROM joueurs WHERE pseudo=?;");
+            $password->bindParam(1,$convertPseudo);
             $password->execute();
 
             $resultats = $password->fetchAll();
-            $passcoder = crypt($mdp, $resultats[0][0]);
+            $password->closeCursor();
 
-            if($passcoder == $resultats[0][0]){
+            $passcoder = crypt($convertPseudo, $resultats[0][0]);
+
+            if($passcoder === $resultats[0][0]){
 
                 $statement = $this->connexion->prepare("SELECT * FROM joueurs where pseudo=? AND motDePasse=?;");
-                $statement->bindParam(1,$pseudo);
-                $statement->bindParam(2,$mdp);
+                $statement->bindParam(1,$convertPseudo);
+                $statement->bindParam(2,$resultats[0][0]);
                 $statement->execute();
-                $resultat = count($statement->fetchAll());
 
-                if($resultat > 0){
-                    return true;
-                }
-                else{
-                    return false;
-                }
+                $reponse = $statement->fetchAll();
+                $statement->closeCursor();
+
+                return(count($reponse) > 0);
             }
             else{
 
@@ -78,18 +83,16 @@ class Modele
 
     public function pseudo_ok($pseudo){
 
+        $lepseudo = $pseudo;
         $statement = $this->connexion->prepare("SELECT pseudo FROM joueurs WHERE pseudo= ?;");
-        $statement->bindParam(1,$pseudo);
+        $statement->bindParam(1,$lepseudo);
         $statement->execute();
+        $resultats = count($statement->fetchAll())>0 ;
 
-        $resultats = count($statement->fetchAll());
+        $statement->closeCursor();
 
-        if($resultats > 0){
-            return true;
-        }
-        else{
-            return false;
-        }
+
+        return($resultats);
 
     }
 

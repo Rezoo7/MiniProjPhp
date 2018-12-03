@@ -1,5 +1,5 @@
 <?php
-require_once PATH_VUE."/vue.php";
+require_once PATH_VUE."/vueAuthentification.php";
 require_once PATH_MODELE."/Connecter.php";
 require_once PATH_MODELE."/Modele.php";
 
@@ -31,13 +31,20 @@ function accueil(){
 
 function authentifier($pseudo, $motdepasse){
 
-  if($this->modele->connection_ok($pseudo, $motdepasse)){
+  if($this->modele->pseudo_ok($pseudo)){
+    echo "pseudo bon";
+  }
+  else{
+    echo "pseudo mauvaiiiis";
+  }
+
+
+  if( $pseudo != "" and $motdepasse != "" and $this->modele->connection_ok($pseudo, $motdepasse) == true){
 
     $_SESSION['pseudo'] = $pseudo;
   }
   else{
 
-    $this->accueil();
     echo "Authentification Invalide";
   }
 

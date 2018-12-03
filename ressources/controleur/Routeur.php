@@ -1,6 +1,6 @@
 <?php
 
-require_once PATH_CONTROLEUR."controleurAuthentification.php";
+require_once PATH_CONTROLEUR."/controleurAuthentification.php";
 
 
 
@@ -38,7 +38,7 @@ class Routeur{
 
 
       if (isset($_POST['pseudo']) and isset($_POST['mdp'])) {
-          if ($_POST['pseudo'] == "" or $_POST['mdp']) {
+          if ($_POST['pseudo'] == "" or $_POST['mdp']== "" ) {
               $this->ctrlAthentification->accueil();
               echo "Pseudo / Mot de Pass vide";
 
