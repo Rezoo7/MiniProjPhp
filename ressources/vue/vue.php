@@ -141,8 +141,10 @@ function commencer(){
       <h1 align ="center"> Le Jeu Bridge </h1>
       <h2 align="center"> Par Maxime Guigourez / Hugo Bourniche</h2>
 
-    
+    <div>
     <img src="IUT_de_Nantes.gif" alt="Logo de l'IUT_de_Nantes" class="center";>
+    </div>
+
     <hr>
 
   <form  align="center" action="" method="post">
@@ -154,7 +156,36 @@ function commencer(){
 </form>
 
 <div>
-  <canvas  id="puzzlecanvas" width="192" height="192" tabindex="1">  </canvas>
+
+  <table border="4" width="40%">
+
+      <tr>
+          <td>  </td>
+          <td>  </td>
+          <td>  </td>
+          <td>  </td>
+      </tr>
+
+      <tr>
+          <td>  </td>
+          <td>  </td>
+          <td>  </td>
+          <td>  </td>
+      </tr>
+
+      <tr>
+          <td>  </td>
+          <td>  </td>
+          <td>  </td>
+          <td>  </td>
+      </tr>
+
+
+  </table>
+
+
+
+
 </div>
 
 
