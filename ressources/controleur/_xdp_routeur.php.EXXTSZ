@@ -1,0 +1,33 @@
+<?php
+
+require_once 'contrleurAuthentification.php'
+
+class Routeur{
+
+  private $ctrlAthentification;
+
+  public function_construct(){
+
+    $this->$ctrlAthentification = new controleurAuthentification();
+    }
+
+
+  public function routeurRequête(){
+
+    if(isset($_POST['pseudo']) && !empty($_POST['pseudo']) ){
+
+      if($this->$ctrlAthentification->authentifier($_POST['pseudo'])){
+
+        $this->$ctrlAthentification->accueil();
+
+      }
+    }
+
+  }
+
+
+}
+
+
+
+ ?>
