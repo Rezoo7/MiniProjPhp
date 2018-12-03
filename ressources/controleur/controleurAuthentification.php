@@ -6,18 +6,18 @@ require_once PATH_MODELE."/Modele.php";
 
 class ControleurAuthentification{
 
-private $vue;
+private $vueAuthentif;
 private $modele;
 
 public function __construct(){
 
-  $this->vue = new Vue();
-  $this->modele = new Connecter();
+  $this->vueAuthentif = new VueAuthentification();
+  $this->modele = new Modele();
 }
 
 
 function accueil(){
-  $this->vue->demandePseudo();
+  $this->vueAuthentif->AffichageCo();
 }
 
 
@@ -28,20 +28,6 @@ function authentifier($pseudotest, $motdepasse){
   }
   return false;
 
-}
-
-
-
-function lanceLeJeu()
-{
-  $this->vue->lancerlejeu();
-}
-
-
-
-function commence(){
-
-	$this->vue->commencer();
 }
 
 

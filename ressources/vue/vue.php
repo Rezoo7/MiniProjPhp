@@ -1,5 +1,8 @@
 <?php
 
+/* A enlever pas bon */
+
+
 class Vue{
 
 function demandePseudo(){
