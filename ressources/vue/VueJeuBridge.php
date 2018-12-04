@@ -21,7 +21,7 @@ class VueJeuBridge
             <html style="background-color: aliceblue">
             <head>
                 <meta charset="UTF-8">
-
+                <link rel="stylesheet" href="styleJeu.css">
                 <title> Jeu du Bridge  </title>
             </head>
             <body>
@@ -59,7 +59,7 @@ class VueJeuBridge
                }
                 ?>
             </table>
-            <!-- bonjour je fais un test -->
+            <!-- bonjour je fais un test | SALUT BUGO-->
 
             <button><a id="bouton" href='index.php?etat=deconnexion'> Quitter </a></button>
 

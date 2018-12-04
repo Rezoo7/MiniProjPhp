@@ -7,27 +7,27 @@
     font-style: normal;
 }
 
-h1 {
 
-    font-family: 'the_salvador_condensedregular', sans-serif;
-    font-size: 3em;
+h1{
 
-}
-
-legend {
-
-    font-family: 'the_salvador_condensedregular', sans-serif;
-    font-size: 1em;
+    font-family:the_salvador_condensedregular , sans-serif;
 
 }
 
-#connec{
 
-    border:none;
-    padding:10px 10px 10px 10px;
-    border-radius:8px;
-    background:#28AD30;
+button {
+    width: 110px;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+#bouton{
+
+    width:85px;
+    height:85px;
+    background:#cc0000;
     font:bold 13px Arial;
+    border-radius:50%;
+    border:none;
     color:#fff;
 }
-
