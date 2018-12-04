@@ -1,17 +1,21 @@
 <?php
 
 require_once PATH_CONTROLEUR."/controleurAuthentification.php";
+require_once PATH_CONTROLEUR."/ControleurErreur.php";
 
 
 
 class Routeur{
 
   private $ctrlAthentification;
+  private $ctrlErreur;
 
 
   public function __construct(){
 
     $this->ctrlAthentification = new controleurAuthentification();
+    $this->ctrlErreur = new ControleurErreur();
+
     }
 
 
@@ -39,8 +43,9 @@ class Routeur{
 
       if (isset($_POST['pseudo']) and isset($_POST['mdp'])) {
           if ($_POST['pseudo'] == "" or $_POST['mdp'] == "") {
-              $this->ctrlAthentification->accueil();
-              echo "Pseudo / Mot de Pass vide";
+
+              $this->ctrlErreur->Erreur("Pseudo ou mot de Passe Vide");
+              return;
 
           } else {
 
@@ -55,6 +60,7 @@ class Routeur{
 
       } else {
 
+          echo "session pseudo active?";
           //controleur d'affichage jeu() + modifier jeu()
       }
 
