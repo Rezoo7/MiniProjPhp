@@ -34,10 +34,6 @@ class Routeur{
                   session_destroy();
                   break;
 
-              case  'recommencer':
-                  unset($_SESSION['tabvilles']);
-                  break;
-
               default:
                   break;
           }
@@ -47,6 +43,7 @@ class Routeur{
       if (isset($_POST['pseudo']) and isset($_POST['mdp'])) {
           if ($_POST['pseudo'] == "" or $_POST['mdp'] == "") {
 
+              $this->ctrlAthentification->accueil();
               $this->ctrlErreur->Erreur("Pseudo ou mot de Passe Vide");
               return;
 
@@ -60,6 +57,7 @@ class Routeur{
       if (!isset($_SESSION['pseudo'])) {
 
           $this->ctrlAthentification->accueil();
+
 
       } else {
 

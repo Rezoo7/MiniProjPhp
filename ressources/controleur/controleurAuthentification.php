@@ -1,17 +1,21 @@
 <?php
 require_once PATH_VUE."/vueAuthentification.php";
 require_once PATH_MODELE."/Modele.php";
+require_once PATH_VUE."/VueErreur.php";
 
 
 class ControleurAuthentification{
 
 private $vueAuthentif;
 private $modele;
+private $vueerreur;
 
 public function __construct(){
 
   $this->vueAuthentif = new VueAuthentification();
   $this->modele = new Modele();
+  $this->vueerreur = new VueErreur();
+
 }
 
 
@@ -36,7 +40,8 @@ function authentifier($pseudo, $motdepasse){
   }
   else{
 
-    echo "Authentification Invalide";
+
+      $this->vueerreur->afficher_erreur("Connection Echouée (Pseudo et/ou Mot de Passe Invalide)");
   }
 
 }
