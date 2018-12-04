@@ -25,9 +25,9 @@ class Routeur{
   public function routeurRequête()
   {
 
-      if (isset($_GET['commencer'])) {
+      if (isset($_GET['etat'])) {
 
-          switch ($_GET['commencer']) {
+          switch ($_GET['etat']) {
 
               case 'deconnexion':
                   unset($_SESSION['pseudo']);
