@@ -29,5 +29,6 @@ legend {
     background:#28AD30;
     font:bold 13px Arial;
     color:#fff;
+    cursor: pointer;
 }
 
