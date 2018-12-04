@@ -11,8 +11,10 @@ include_once "./modele/villes.php";
 class VueJeuBridge
 {
 
+    public $villes;
     public function afficher_jeu(){
 
+        $this->villes = new Villes();
         ?>
 
             <!doctype html>
@@ -33,13 +35,18 @@ class VueJeuBridge
                for ( $i=0; $i <=6; $i ++ )
                {
                    ?>
-                   <tr style="border: 1px solid black;">
+                   <tr>
                    <?php
                    for ( $j=0; $j <=6; $j ++ )
                    {
                        ?>
                        <td>
-                       <?php echo "<$i $j>"; ?></td>
+                       <?php
+                       if ($this->villes->existe($i,$j))
+                       {
+                           echo $this->villes->getVille($i,$j)->getNombrePontsMax();
+                       }
+                       ?></td>
                        <?php
                    }
                    ?>  </tr>
