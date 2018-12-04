@@ -26,6 +26,8 @@ class VueJeuBridge
             <h1> Bienvenue Sur le Jeu du Bridge ! </h1>
             <br>
             <br>
+            
+            <!-- bonjour je fais un test -->
 
             <button><a id="bouton" href='index.php?etat=deconnexion'> Quitter </a></button>
 
