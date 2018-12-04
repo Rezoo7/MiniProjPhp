@@ -26,7 +26,25 @@ class VueJeuBridge
             <h1> Bienvenue Sur le Jeu du Bridge ! </h1>
             <br>
             <br>
-            
+            <table>
+                <?php
+
+               for ( $i=0; $i <=7; $i ++ )
+               {
+                   ?>
+                   <tr style="border: 1px solid black;">
+                   <?php
+                   for ( $j=0; $j <=7; $j ++ )
+                   {
+                       ?>
+                       <td>.</td>
+                       <?php
+                   }
+                   ?>  </tr>
+                   <?php
+               }
+                ?>
+            </table>
             <!-- bonjour je fais un test -->
 
             <button><a id="bouton" href='index.php?etat=deconnexion'> Quitter </a></button>
