@@ -18,7 +18,7 @@ class VueJeuBridge
         ?>
 
             <!doctype html>
-            <html>
+            <html style="background-color: aliceblue">
             <head>
                 <meta charset="UTF-8">
 
@@ -29,7 +29,7 @@ class VueJeuBridge
             <h1> Bienvenue Sur le Jeu du Bridge ! </h1>
             <br>
             <br>
-            <table style="background-color: lightgoldenrodyellow">
+            <table style="background-color: #c5faf8">
                 <?php
 
                for ( $i=0; $i <=6; $i ++ )
@@ -45,11 +45,11 @@ class VueJeuBridge
                        if ($this->villes->existe($i,$j))
                        {
                            $entier = $this->villes->getVille($i,$j)->getNombrePontsMax();
-                            echo "<button>" .  $entier. "</button>";
+                            echo "<input name=\"monbouton1\" type=\"button\" value=".  $entier.">";
                        }
                        else
                        {
-                           echo "O";
+                           echo "   ";
                        }
                        ?></td>
                        <?php
