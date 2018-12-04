@@ -38,7 +38,7 @@ class Routeur{
 
 
       if (isset($_POST['pseudo']) and isset($_POST['mdp'])) {
-          if ($_POST['pseudo'] == "" or $_POST['mdp']== "" ) {
+          if ($_POST['pseudo'] == "" or $_POST['mdp'] == "") {
               $this->ctrlAthentification->accueil();
               echo "Pseudo / Mot de Pass vide";
 
@@ -49,48 +49,16 @@ class Routeur{
       }
 
 
-      if(!isset($_SESSION['pseudo'])){
+      if (!isset($_SESSION['pseudo'])) {
 
           $this->ctrlAthentification->accueil();
 
-      }else{
+      } else {
 
-        //controleur d'affichage jeu() + modifier jeu()
+          //controleur d'affichage jeu() + modifier jeu()
       }
 
-
-
-
-    /*
-    if(isset($_POST['pseudo']) && !empty($_POST['pseudo']) && !isset($_POST['demarrer'])){
-
-      if($this->ctrlAthentification->authentifier($_POST['pseudo'], $_POST['mdp'])){
-
-        $this->ctrlAthentification->lanceLeJeu();
-
-        print_r($_POST['pseudo']);
-
-
-      }
-    }else{
-
-
-         $this->ctrlAthentification->accueil();
-
-    }
-
-
-
-
-    if(isset($_POST['demarrer'])){
-
-        $this->ctrlAthentification->commence();
-    }
-    
-
-  */
-
-    }
+  }
 
   
 
