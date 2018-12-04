@@ -8,9 +8,6 @@
  * Va servir a gérer l'accès aux données !
  */
 
-require_once PATH_EXCEPTIONS."/MonException.php";
-require_once PATH_EXCEPTIONS."/ConnexionException.php";
-require_once PATH_EXCEPTIONS."/TableAccessException.php";
 
 
 class Modele

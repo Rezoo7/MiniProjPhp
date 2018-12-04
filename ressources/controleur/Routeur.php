@@ -2,6 +2,7 @@
 
 require_once PATH_CONTROLEUR."/controleurAuthentification.php";
 require_once PATH_CONTROLEUR."/ControleurErreur.php";
+require_once PATH_CONTROLEUR."/ControleurJeuBridge.php";
 
 
 
@@ -9,12 +10,14 @@ class Routeur{
 
   private $ctrlAthentification;
   private $ctrlErreur;
+  private $ctrlJeu;
 
 
   public function __construct(){
 
     $this->ctrlAthentification = new controleurAuthentification();
     $this->ctrlErreur = new ControleurErreur();
+    $this->ctrlJeu = new ControleurJeuBridge();
 
     }
 
@@ -60,7 +63,8 @@ class Routeur{
 
       } else {
 
-          echo "session pseudo active?";
+          $this->ctrlJeu->afficher_bridge();
+
           //controleur d'affichage jeu() + modifier jeu()
       }
 

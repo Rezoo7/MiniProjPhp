@@ -6,7 +6,7 @@
  * Time: 19:31
  */
 
-require_once PATH_VUE."VueErreur.php";
+require_once PATH_VUE."/VueErreur.php";
 
 
 class ControleurErreur
