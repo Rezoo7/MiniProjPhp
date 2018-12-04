@@ -13,3 +13,20 @@ h1 {
     font-size: 3em;
 
 }
+
+legend {
+
+    font-family: 'the_salvador_condensedregular', sans-serif;
+    font-size: 1em;
+
+}
+
+#connec{
+
+    border:none;
+    padding:10px 10px 10px 10px;
+    border-radius:8px;
+    background:#28AD30;
+    font:bold 13px Arial;
+    color:#fff;
+}

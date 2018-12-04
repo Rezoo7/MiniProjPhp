@@ -23,12 +23,20 @@ class VueAuthentification
         <body>
 
         <h1> Connexion au Jeu </h1>
+
         <form action="index.php" method="POST">
+        <fieldset>
+            <legend> Entrez Vos Identifiants   </legend>
 
             <p> Pseudo: <input type="name" name="pseudo"> </p>
             <p> Mot de Passe: <input type = "password" name="mdp"></p>
 
-            <input type="submit" value="Connexion">
+        </fieldset>
+            <br>
+
+            <input id="connec" type="submit" value="Connexion">
+
+
         </form>
         </body>
         </html>
