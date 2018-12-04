@@ -27,7 +27,7 @@ class VueJeuBridge
             <br>
             <br>
 
-            <button><a href='index.php?page=commencer'> Quitter </a> </button>
+            <button><a href='index.php?page=deconnexion'> Quitter </a> </button>
 
 
 
