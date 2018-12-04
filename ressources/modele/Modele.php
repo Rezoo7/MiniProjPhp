@@ -14,8 +14,26 @@ class Modele
     private $connexion;
     public function __construct()
     {
-        $this->connexion = new PDO('mysql:host'.HOST.'dbname='.BD,LOGIN,PASSWORD);
+        try{
+            $chaine="mysql:host=localhost;dbname=projet";
+            $this->connexion = new PDO($chaine,"root","");
+            $this->connexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        }
+        catch(PDOException $e){
+            $exception=new ConnexionException("problème de connection à la base");
+            throw $exception;
+        }
     }
+
+    // méthode qui permet de se deconnecter de la base
+    public function deconnexion(){
+        $this->connexion=null;
+    }
+
+
+
+
+
 
     /**
      * Fonction qui va permettre de tester si la connection est bonne (pseudo + mot de passe)
@@ -82,17 +100,23 @@ class Modele
 
     public function pseudo_ok($pseudo){
 
-        $lepseudo = $pseudo;
-        $statement = $this->connexion->prepare("SELECT pseudo FROM joueurs WHERE pseudo= ?;");
-        $statement->bindParam(1,$lepseudo);
-        $statement->execute();
-        $resultats = count($statement->fetchAll())>0 ;
+        try{
 
+            $statement=$this->connexion->query("SELECT pseudo from joueurs where pseudo = ?;");
+            $statement->bindParam(1,$pseudo);
 
-        $statement->closeCursor();
+            $result= $statement->fetch();
 
-
-        return($resultats);
+            if($result['pseudo'] != null){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        catch(PDOException $e){
+            throw new TableAccesException("problème avec la table joueurs");
+        }
 
     }
 

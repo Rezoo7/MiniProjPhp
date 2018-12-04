@@ -66,7 +66,8 @@ class Routeur{
       if($this->ctrlAthentification->authentifier($_POST['pseudo'], $_POST['mdp'])){
 
         $this->ctrlAthentification->lanceLeJeu();
-        $acc = false;
+
+        print_r($_POST['pseudo']);
 
 
       }
