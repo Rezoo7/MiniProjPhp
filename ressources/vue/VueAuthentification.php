@@ -17,8 +17,8 @@ class VueAuthentification
         <html>
         <head>
             <meta charset="UTF-8">
-
             <title> Authentification du Joueur  </title>
+            <link rel="stylesheet" href="styleAuth.css">
         </head>
         <body>
 
