@@ -29,7 +29,7 @@ class VueJeuBridge
             <h1> Bienvenue Sur le Jeu du Bridge ! </h1>
             <br>
             <br>
-            <table>
+            <table style="background-color: lightgoldenrodyellow">
                 <?php
 
                for ( $i=0; $i <=6; $i ++ )
@@ -44,7 +44,8 @@ class VueJeuBridge
                        <?php
                        if ($this->villes->existe($i,$j))
                        {
-                           echo $this->villes->getVille($i,$j)->getNombrePontsMax();
+                           $entier = $this->villes->getVille($i,$j)->getNombrePontsMax();
+                            echo "<button>" .  $entier. "</button>";
                        }
                        else
                        {
