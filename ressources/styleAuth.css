@@ -1,9 +1,15 @@
 @font-face {
     font-family: 'the_salvador_condensedregular';
-    src: url('/police/thesalvador-condensed-webfont.woff2') format("woff2"),
-    src: url('police/TheSalvador-Condensed.otf') format('truetype'),
+    src: url('/police/thesalvador-condensed-webfont.woff2') format("woff2");
+    src: url('/police/TheSalvador-Condensed.otf') format('truetype'),
     url('police/thesalvador-condensed-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+
+h1 {
+
+    font-family: 'the_salvador_condensedregular', sans-serif;
+    font-size: 3em;
 
 }
