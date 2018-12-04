@@ -48,6 +48,7 @@ class Routeur{
           }
       }
 
+
       if(!isset($_SESSION['pseudo'])){
 
           $this->ctrlAthentification->accueil();

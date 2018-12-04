@@ -1,6 +1,5 @@
 <?php
 require_once PATH_VUE."/vueAuthentification.php";
-require_once PATH_MODELE."/Connecter.php";
 require_once PATH_MODELE."/Modele.php";
 
 
@@ -30,18 +29,6 @@ function accueil(){
      */
 
 function authentifier($pseudo, $motdepasse){
-
-  if($this->modele->pseudo_ok($pseudo)){
-    echo "pseudo bon";
-  }
-  else{
-    echo "pseudo mauvaiiiis";
-    echo "<br>";
-    echo $pseudo;
-    echo "<br>";
-    echo $motdepasse;
-  }
-
 
   if( $pseudo != "" and $motdepasse != "" and $this->modele->connection_ok($pseudo, $motdepasse) == true){
 

@@ -8,12 +8,19 @@
  * Va servir a gérer l'accès aux données !
  */
 
+require_once PATH_EXCEPTIONS."/MonException.php";
+require_once PATH_EXCEPTIONS."/ConnexionException.php";
+require_once PATH_EXCEPTIONS."/TableAccessException.php";
+
+
 class Modele
 {
 
     private $connexion;
+
     public function __construct()
     {
+
         try{
             $chaine="mysql:host=localhost;dbname=projet";
             $this->connexion = new PDO($chaine,"root","");
@@ -54,7 +61,7 @@ class Modele
             $convertMdp = htmlspecialchars($mdp);
 
 
-            $password = $this->connexion()->prepare("SELECT motdePasse FROM joueurs WHERE pseudo=?;");
+            $password = $this->connexion->prepare("SELECT motdePasse FROM joueurs WHERE pseudo=?;");
             $password->bindParam(1,$convertPseudo);
             $password->execute();
 
@@ -98,16 +105,30 @@ class Modele
      */
 
 
-    public function pseudo_ok($pseudo){
+    public function getPseudo(){
 
         try{
 
-            $statement=$this->connexion->query("SELECT pseudo from joueurs where pseudo = ?;");
-            $statement->bindParam(1,$pseudo);
+            $statement=$this->connexion->query("SELECT pseudo from joueurs WHERE pseudo =?;");
+            $result[]=$statement->fetch()['pseudo'];
+            return($result);
+        }
+        catch(PDOException $e){
 
-            $result= $statement->fetch();
+        }
 
-            if($result['pseudo'] != null){
+    }
+
+    public function pseudo_ok($pseudo){
+
+        try{
+            $statement = $this->connexion->prepare("select pseudo from joueurs where pseudo=?;");
+            $statement->bindParam(1, $pseudoParam);
+            $pseudoParam=$pseudo;
+            $statement->execute();
+            $result=$statement->fetch(PDO::FETCH_ASSOC);
+
+            if ($result["pseudo"]!=NUll){
                 return true;
             }
             else{
@@ -115,9 +136,8 @@ class Modele
             }
         }
         catch(PDOException $e){
-            throw new TableAccesException("problème avec la table joueurs");
+            $this->deconnexion();
         }
-
     }
 
 }
