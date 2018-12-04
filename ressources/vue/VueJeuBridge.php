@@ -46,6 +46,10 @@ class VueJeuBridge
                        {
                            echo $this->villes->getVille($i,$j)->getNombrePontsMax();
                        }
+                       else
+                       {
+                           echo "O";
+                       }
                        ?></td>
                        <?php
                    }
