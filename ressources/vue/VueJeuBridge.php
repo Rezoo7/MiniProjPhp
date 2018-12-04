@@ -6,9 +6,10 @@
  * Time: 14:51
  */
 
+include_once "./modele/villes.php";
+
 class VueJeuBridge
 {
-
 
     public function afficher_jeu(){
 
@@ -29,15 +30,16 @@ class VueJeuBridge
             <table>
                 <?php
 
-               for ( $i=0; $i <=7; $i ++ )
+               for ( $i=0; $i <=6; $i ++ )
                {
                    ?>
                    <tr style="border: 1px solid black;">
                    <?php
-                   for ( $j=0; $j <=7; $j ++ )
+                   for ( $j=0; $j <=6; $j ++ )
                    {
                        ?>
-                       <td>.</td>
+                       <td>
+                       <?php echo "<$i_$j>"; ?></td>
                        <?php
                    }
                    ?>  </tr>
