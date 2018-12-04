@@ -39,7 +39,7 @@ class VueJeuBridge
                    {
                        ?>
                        <td>
-                       <?php echo "<$i_$j>"; ?></td>
+                       <?php echo "<$i $j>"; ?></td>
                        <?php
                    }
                    ?>  </tr>
