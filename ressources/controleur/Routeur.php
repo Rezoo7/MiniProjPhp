@@ -43,13 +43,16 @@ class Routeur{
       if (isset($_POST['pseudo']) and isset($_POST['mdp'])) {
           if ($_POST['pseudo'] == "" or $_POST['mdp'] == "") {
 
-              $this->ctrlAthentification->accueil();
               $this->ctrlErreur->Erreur("Pseudo ou mot de Passe Vide");
+              $this->ctrlAthentification->accueil();
+
               return;
 
           } else {
 
+
               $this->ctrlAthentification->authentifier($_POST['pseudo'], $_POST['mdp']);
+
           }
       }
 
