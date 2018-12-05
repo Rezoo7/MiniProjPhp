@@ -28,6 +28,24 @@ return $this->villes[$i][$j];
 }
 
 
+function getVilleID($id){
+    for ($i=0; $i<7; $i++)
+    {
+        for ($j=0; $j<7; $j++)
+        {
+            if($this->villes[$i][$j]->getId()==$id)
+            {
+                return $this->villes[$i][$j];
+            }
+            else
+            {
+                return null;
+            }
+        }
+    }
+    }
+
+
 // modifieur qui value le nombre de ponts de la ville en position $i et $j;
 // précondition: la ville en position $i et $j existe
 

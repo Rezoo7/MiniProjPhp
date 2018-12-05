@@ -56,6 +56,8 @@ class VueJeuBridge
                                 {
                                     $src_image = "../ressources/Image/vert/vnumero".$laVille->getNombrePontsMax().".png";
                                 }
+
+
                            }
 
 
