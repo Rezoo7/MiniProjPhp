@@ -45,8 +45,14 @@ class VueJeuBridge
                        <?php
                        if ($this->villes->existe($i,$j))
                        {
-                           $entier = $this->villes->getVille($i,$j)->getNombrePontsMax();
-                            echo "<input name=\"monbouton1\" type=\"button\" value=".  $entier.">";
+                           $laVille = $this->villes->getVille($i,$j);
+                           $src_image = "../ressources/Image/numero".$laVille->getNombrePontsMax().".png";
+
+                           $ville_id = $laVille->getId();
+
+
+                            echo "<a href= http://localhost/miniproj/ressources/index.php?ville=".$ville_id."><img src=\"".$src_image."\"></a>";
+                            //echo "<input name=\"imageVille\" type=\"button\" value=".  $entier.">";
                        }
                        else
                        {
