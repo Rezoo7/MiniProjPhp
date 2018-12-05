@@ -53,11 +53,11 @@ function getVilleID($id){
             {
                 if($this->villes[$i][$j]->getId()==$id)
                 {
-                    return 3;
+                    return $i;
                 }
                 else
                 {
-                    return null;
+                    return -1;
                 }
             }
         }
@@ -71,11 +71,11 @@ function getVilleID($id){
             {
                 if($this->villes[$i][$j]->getId()==$id)
                 {
-                    return 4;
+                    return $j;
                 }
                 else
                 {
-                    return null;
+                    return -1;
                 }
             }
         }

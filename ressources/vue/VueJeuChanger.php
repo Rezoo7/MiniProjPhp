@@ -93,7 +93,7 @@ class VueJeuChanger
 <?php
 
 
-        echo $idville;
+        echo $idville ." - ";
         echo $_GET['ville2'];
     }
 

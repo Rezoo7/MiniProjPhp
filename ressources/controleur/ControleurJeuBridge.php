@@ -49,26 +49,28 @@ class ControleurJeuBridge
 
         $this->TheVue = $this->vue_chan->changer($id_ville);
 
-        $x=$this->lesV->getVillePosX($id_ville);
-        $y=$this->lesV->getVillePosY($id_ville);
+        $x1=$this->lesV->getVillePosX($id_ville);
+        $y1=$this->lesV->getVillePosY($id_ville);
 
-        echo "coordonnées de ".$id_ville. " :". $x . ", " . $y;
+        echo "<br/> coordonnées de ".$id_ville. " :  ". $x1 . ", " . $y1;
 
         if ($_GET['ville2']>-1)
         {
             $ville2=$_GET['ville2'];
-            $x=$this->lesV->getVillePosX($ville2);
-            $y=$this->lesV->getVillePosY($ville2);
+            $x2=$this->lesV->getVillePosX($ville2);
+            $y2=$this->lesV->getVillePosY($ville2);
 
-            echo "coordonnées de ".$ville2. " :". $x . "; " . $y;
+            echo "<br/>coordonnées de ".$ville2. " :  ". $x2 . "; " . $y2;
 
-            if($this->lesV->getVillePosX($id_ville)==$this->lesV->getVillePosX($ville2) || $this->lesV->getVillePosY($id_ville)==$this->lesV->getVillePosY($ville2))
+            if($x1==$x2 || $y1==$y2)
             {
+                echo "<br/>";
                 echo "YESS";
                 #$this->lesV->getVilleID($id_ville)->lierVilles($ville2);
         }
             else
             {
+                echo "<br/>";
                 echo "NOO";
                 #$this->TheVue = $this->vuejeu->afficher_jeu();
             }
