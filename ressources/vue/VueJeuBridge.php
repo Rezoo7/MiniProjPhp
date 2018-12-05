@@ -6,7 +6,6 @@
  * Time: 14:51
  */
 
-include_once "./modele/villes.php";
 
 class VueJeuBridge
 {
@@ -43,42 +42,17 @@ class VueJeuBridge
 
                        echo "<td>";
 
-                       if ($this->villes->existe($i,$j))
-                       {
+                       if ($this->villes->existe($i,$j)) {
 
-                           $laVille = $this->villes->getVille($i,$j);
-                           $src_image = "../ressources/Image/numero".$laVille->getNombrePontsMax().".png";
+                           $laVille = $this->villes->getVille($i, $j);
+                           $src_image = "../ressources/Image/numero" . $laVille->getNombrePontsMax() . ".png";
 
                            $ville_id = $laVille->getId();
-
-                           if (isset($_GET['ville']))
-                           {
-                                if($_GET['ville']==$ville_id)
-                                {
-                                    $src_image = "../ressources/Image/vert/vnumero".$laVille->getNombrePontsMax().".png";
-                                }
-
-
-
-
-                           }
-
-
                            echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville=".$ville_id."><img src=\"".$src_image."\" width='50'></a>";
-
-
                        }
                        else
                        {
-                           $rand = random_int(0,3);
-                           if ($rand==0)
-                            echo "<img src=\"../ressources/IMage/Barres/BarreDoubleHorizontale.png\" width='50'>";
-                           if ($rand==1)
-                               echo "<img src=\"../ressources/IMage/Barres/BarreDoubleVerticale.png\" width='50'>";
-                           if ($rand==2)
-                               echo "<img src=\"../ressources/IMage/Barres/BarreSimpleHorizontale.png\" width='50'>";
-                           if ($rand==3)
-                               echo "<img src=\"../ressources/IMage/Barres/BarreSimpleVerticale.png\" width='50'>";
+                           echo "   ";
                        }
                        echo "</td>";
 
