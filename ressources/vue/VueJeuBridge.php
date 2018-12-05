@@ -34,15 +34,15 @@ class VueJeuBridge
 
                for ( $i=0; $i <=6; $i ++ )
                {
-                   ?>
-                   <tr>
 
-                   <?php
+                   echo "<tr>";
+
+
                    for ( $j=0; $j <=6; $j ++ )
                    {
-                       ?>
-                       <td>
-                       <?php
+
+                       echo "<td>";
+
                        if ($this->villes->existe($i,$j))
                        {
 
@@ -58,10 +58,12 @@ class VueJeuBridge
                                 }
 
 
+
+
                            }
 
 
-                           echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville=".$ville_id."><img src=\"".$src_image."\"></a>";
+                           echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville=".$ville_id."><img src=\"".$src_image."\" width='50'></a>";
 
 
                        }
@@ -69,11 +71,11 @@ class VueJeuBridge
                        {
                            echo "   ";
                        }
-                       ?></td>
-                       <?php
+                       echo "</td>";
+
                    }
-                   ?>  </tr>
-                   <?php
+                   echo "</tr>";
+
                }
                 ?>
             </table>
