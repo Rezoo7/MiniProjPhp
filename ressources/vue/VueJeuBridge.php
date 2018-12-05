@@ -29,13 +29,14 @@ class VueJeuBridge
             <h1> Bienvenue Sur le Jeu du Bridge ! </h1>
             <br>
             <br>
-            <table cellpadding="0" cellspacing="0" border="0">
+            <table class="center" cellpadding="0" cellspacing="0" border="0">
                 <?php
 
                for ( $i=0; $i <=6; $i ++ )
                {
                    ?>
                    <tr>
+
                    <?php
                    for ( $j=0; $j <=6; $j ++ )
                    {
@@ -65,7 +66,7 @@ class VueJeuBridge
 
             <br>  <br>
 
-            <button><a id="bouton" href='index.php?etat=deconnexion'> Quitter </a></button>
+            <button id="bouton"><a href='index.php?etat=deconnexion'> Quitter </a></button>
 
             </body>
             </html>
