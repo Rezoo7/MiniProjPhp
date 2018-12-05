@@ -51,7 +51,7 @@ class VueJeuBridge
                            $ville_id = $laVille->getId();
 
 
-                            echo "<a href= http://localhost/miniproj/ressources/index.php?ville=".$ville_id."><img src=\"".$src_image."\"></a>";
+                            echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville=".$ville_id."><img src=\"".$src_image."\"></a>";
                             //echo "<input name=\"imageVille\" type=\"button\" value=".  $entier.">";
                        }
                        else
