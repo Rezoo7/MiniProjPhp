@@ -47,20 +47,22 @@ function getVilleID($id){
 
     function getVillePosX($id)
     {
+
         for ($i=0; $i<7; $i++)
         {
+
             for ($j=0; $j<7; $j++)
             {
                 if(isset($this->villes[$i][$j])) {
                     if ($this->villes[$i][$j]->getId() == $id) {
                         return $i;
-                    } else {
-                        return -1;
+                    }
                     }
                 }
             }
+        return -1;
         }
-    }
+
 
     function getVillePosY($id)
     {
@@ -71,13 +73,14 @@ function getVilleID($id){
                 if(isset($this->villes[$i][$j])) {
                     if ($this->villes[$i][$j]->getId() == $id) {
                         return $j;
-                    } else {
-                        return -1;
+                    }
                     }
                 }
             }
+        return -1;
         }
-    }
+
+
 
 // modifieur qui value le nombre de ponts de la ville en position $i et $j;
 // précondition: la ville en position $i et $j existe

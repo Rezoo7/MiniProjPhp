@@ -51,14 +51,13 @@ class ControleurJeuBridge
 
         $x1=$this->lesV->getVillePosX($id_ville);
         $y1=$this->lesV->getVillePosY($id_ville);
-        //TODO
-        //Comprendre pourquoi seule les coordonnées de 0,0 sont prises en comptes
-        // et pas les autres
+
         echo "<br/> coordonnées de ".$id_ville. " :  ". $x1 . ", " . $y1;
 
         if ($_GET['ville2']>-1)
         {
             $ville2=$_GET['ville2'];
+
             $x2=$this->lesV->getVillePosX($ville2);
             $y2=$this->lesV->getVillePosY($ville2);
 
