@@ -6,33 +6,22 @@
  * Time: 18:28
  */
 
-
+require_once PATH_CONTROLEUR."/ControleurJeuBridge.php";
 
 class Partie
 {
 
-
-
+    private $ctrlJeu;
 
     public function __construct()
     {
 
-
-
-
-    }
-
-    /**
-     *
-     * Fonction qui va servir à savoir si la ville est selectionnée
-     * @return Boolean :select
-     *
-     */
-    function isSelected($ville){
-
-
+        $this->ctrlJeu = new ControleurJeuBridge();
 
     }
+
+
+
 
 
 

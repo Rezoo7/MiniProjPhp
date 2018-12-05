@@ -24,8 +24,7 @@ class ControleurJeuBridge
    private $vue_chan;
 
    private $TheVue;
-
-
+   private $selected;
 
     public function __construct(){
 
@@ -33,6 +32,7 @@ class ControleurJeuBridge
         $this->partie_mod = new Partie();
         $this->lesV =new Villes();
         $this->vue_chan = new VueJeuChanger();
+        $this->selected = false;
 
 
 
