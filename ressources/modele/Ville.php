@@ -41,7 +41,7 @@ $this->nombrePonts=$nb;
 
 //il faut ici implémenter les méthodes qui permettent de lier des villes entre elles, ...
 function lierVilles($ville){
-  $villesLiees[$nombrePonts]=$ville;
+  $villesLiees[$this->nombrePonts]=$ville;
   $this->nombrePonts++;
 }
 

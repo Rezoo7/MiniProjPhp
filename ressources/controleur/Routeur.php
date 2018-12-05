@@ -45,9 +45,7 @@ class Routeur{
 
              if($_GET['ville'] == $i){
 
-
-                 // controleur du jeu
-                 $this->ctrlJeu->afficher_bridge(); //pour l'instant
+                $this->ctrlJeu->couleur_ville($_GET['ville']);
 
              }
 
