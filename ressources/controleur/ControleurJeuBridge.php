@@ -23,6 +23,8 @@ class ControleurJeuBridge
    private $lesV;
    private $vue_chan;
 
+   private $TheVue;
+
 
 
     public function __construct(){
@@ -31,19 +33,27 @@ class ControleurJeuBridge
         $this->partie_mod = new Partie();
         $this->lesV =new Villes();
         $this->vue_chan = new VueJeuChanger();
+
+
+
     }
 
 
     public function afficher_bridge(){
 
-        $this->vuejeu->afficher_jeu();
+       $this->TheVue = $this->vuejeu->afficher_jeu();
     }
 
 
     public function couleur_ville($id_ville){
 
-        $this->vue_chan->changer($id_ville);
+        $this->TheVue = $this->vue_chan->changer($id_ville);
 
+    }
+
+    public function vue_actuelle(){
+
+        return $this->TheVue;
     }
 
 

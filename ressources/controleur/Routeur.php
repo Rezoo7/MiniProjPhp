@@ -39,13 +39,16 @@ class Routeur{
           }
       }
 
+
+
      if(isset($_GET['ville'])) {
 
-         for($i =1;$i<=9;$i++){
+         for($i =0;$i<=9;$i++){
 
              if($_GET['ville'] == $i){
 
                 $this->ctrlJeu->couleur_ville($_GET['ville']);
+                $this->ctrlJeu->vue_actuelle();
 
              }
 
@@ -79,9 +82,10 @@ class Routeur{
           $this->ctrlAthentification->accueil();
 
 
-      } else {
+      } elseif(!isset($_GET['ville'])){
 
           $this->ctrlJeu->afficher_bridge();
+          $this->ctrlJeu->vue_actuelle();
 
           //controleur d'affichage jeu() + modifier jeu()
       }

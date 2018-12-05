@@ -50,6 +50,7 @@ class VueJeuBridge
                            $src_image = "../ressources/Image/numero".$laVille->getNombrePontsMax().".png";
 
                            $ville_id = $laVille->getId();
+
                            if (isset($_GET['ville']))
                            {
                                 if($_GET['ville']==$ville_id)
