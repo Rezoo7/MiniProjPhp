@@ -79,7 +79,7 @@ class VueJeuChanger
             }
             ?>
         </table>
-        <!-- bonjour je fais un test | SALUT BUGO | Qu'as tu changé ici ? -->
+        <!-- bonjour je fais un test | SALUT BUGO | Yo Monsieur REZOO -->
 
         </form>
 

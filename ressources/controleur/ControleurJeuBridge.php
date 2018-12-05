@@ -51,7 +51,9 @@ class ControleurJeuBridge
 
         $x1=$this->lesV->getVillePosX($id_ville);
         $y1=$this->lesV->getVillePosY($id_ville);
-
+        //TODO
+        //Comprendre pourquoi seule les coordonnées de 0,0 sont prises en comptes
+        // et pas les autres
         echo "<br/> coordonnées de ".$id_ville. " :  ". $x1 . ", " . $y1;
 
         if ($_GET['ville2']>-1)
@@ -60,17 +62,20 @@ class ControleurJeuBridge
             $x2=$this->lesV->getVillePosX($ville2);
             $y2=$this->lesV->getVillePosY($ville2);
 
-            echo "<br/>coordonnées de ".$ville2. " :  ". $x2 . "; " . $y2;
+            echo "<br/>coordonnées de ".$ville2. " :  ". $x2 . "; " . $y2 ."<br/>";
 
             if($x1==$x2 || $y1==$y2)
             {
-                echo "<br/>";
+                //TODO
+                //utiliser la fonction de liaison entre villes
+
                 echo "YESS";
                 #$this->lesV->getVilleID($id_ville)->lierVilles($ville2);
         }
             else
             {
-                echo "<br/>";
+                //TODO
+                //Faire en sorte de retourner à la branche de départ.
                 echo "NOO";
                 #$this->TheVue = $this->vuejeu->afficher_jeu();
             }
