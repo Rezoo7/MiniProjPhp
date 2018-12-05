@@ -52,10 +52,10 @@ class VueJeuChanger
                                 $laVille = $this->villes->getVille($i,$j);
                                 $src_image = "../ressources/Image/numero".$laVille->getNombrePontsMax().".png";
 
-                                if($laVille->getID() == $idville){
+                                if($laVille->getID() == $idville || $laVille->getID()==$_GET["ville2"] ) {
 
-                                    $ville_modif =$this->villes->getVille($i,$j);
-                                    $src_image = "../ressources/Image/vert/vnumero".$ville_modif->getNombrePontsMax().".png";
+                                    $ville_modif = $this->villes->getVille($i, $j);
+                                    $src_image = "../ressources/Image/vert/vnumero" . $ville_modif->getNombrePontsMax() . ".png";
 
                                 }
 
