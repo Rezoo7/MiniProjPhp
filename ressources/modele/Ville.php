@@ -15,7 +15,7 @@ class Ville{
     $this->id=$id;
     $this->nombrePontsMax=$nombrePontsMax;
     $this->nombrePonts=$nombrePonts;
-    $this->villesLiees=null;
+    $this->villesLiees=array();
 
     }
 
@@ -49,9 +49,15 @@ class Ville{
 
     //il faut ici implémenter les méthodes qui permettent de lier des villes entre elles, ...
     function lierVilles($ville){
-      $this->villesLiees[$this->nombrePonts]=$ville;
+      $this->villesLiees[$this->nombrePonts] = $ville;
       $this->nombrePonts++;
-      //$ville->lierVilles($this);
+      $ville->lierVilles($this);
+    }
+
+    //fonction qui retire toutes les liaisons (permet de réinitialiser le jeu)
+    function detruiresLiaison()
+    {
+        $this->villesLiees=null;
     }
 
 

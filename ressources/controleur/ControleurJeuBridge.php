@@ -67,15 +67,16 @@ class ControleurJeuBridge
             {
                 //TODO
                 //utiliser la fonction de liaison entre villes
-
-                echo "YESS";
-                #$this->lesV->getVilleID($id_ville)->lierVilles($ville2);
+                //et accéssoirement afficher les ponts
+                echo "LIAISON POSSIBLE";
+                $this->lesV->getVilleID($id_ville)->lierVilles($ville2); //ça ça donne une errreur que je ne sais pas trop ce que ça veut dire faut check ville.php->lierVilles
         }
             else
             {
                 //TODO
                 //Faire en sorte de retourner à la branche de départ.
-                echo "NOO";
+                echo "NOPE";
+                $this->afficher_bridge(); //ici ça rajoute en dessous un jeu c'est l'enfer
                 #$this->TheVue = $this->vuejeu->afficher_jeu();
             }
         }
