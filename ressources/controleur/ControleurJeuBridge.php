@@ -32,7 +32,7 @@ class ControleurJeuBridge
         $this->partie_mod = new Partie();
         $this->lesV =new Villes();
         $this->vue_chan = new VueJeuChanger();
-        $this->selected = false;
+       $this->selected = false;
 
 
 

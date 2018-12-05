@@ -3,6 +3,7 @@
 
 class Ville{
     // permet d'identifier de manière unique la ville
+
     private $id;
     private $nombrePontsMax;
     private $nombrePonts;
@@ -48,10 +49,20 @@ class Ville{
     }
 
     //il faut ici implémenter les méthodes qui permettent de lier des villes entre elles, ...
+
     function lierVilles($ville){
-      $this->villesLiees[$this->nombrePonts]=$ville;
-      $this->nombrePonts++;
-      //$ville->lierVilles($this);
+
+        if($this->nombrePonts < $this->getNombrePontsMax()){
+            if($this->villesLiees == null){
+
+                $this->villesLiees= array();
+            }
+            $this->villesLiees[] = $ville;
+        }
+        else{
+
+            return false;
+        }
     }
 
 
