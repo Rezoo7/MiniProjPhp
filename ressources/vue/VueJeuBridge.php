@@ -29,7 +29,7 @@ class VueJeuBridge
             <h1> Bienvenue Sur le Jeu du Bridge ! </h1>
             <br>
             <br>
-            <table style="background-color: #c5faf8">
+            <table cellpadding="0" cellspacing="0" border="0">
                 <?php
 
                for ( $i=0; $i <=6; $i ++ )
@@ -61,11 +61,12 @@ class VueJeuBridge
             </table>
             <!-- bonjour je fais un test | SALUT BUGO-->
 
+            </form>
+
+            <br>  <br>
+
             <button><a id="bouton" href='index.php?etat=deconnexion'> Quitter </a></button>
 
-
-
-            </form>
             </body>
             </html>
 
