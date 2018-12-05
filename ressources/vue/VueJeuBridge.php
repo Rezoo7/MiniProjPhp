@@ -52,7 +52,7 @@ class VueJeuBridge
 
 
                             echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville=".$ville_id."><img src=\"".$src_image."\"></a>";
-                            //echo "<input name=\"imageVille\" type=\"button\" value=".  $entier.">";
+
                        }
                        else
                        {
@@ -66,7 +66,7 @@ class VueJeuBridge
                }
                 ?>
             </table>
-            <!-- bonjour je fais un test | SALUT BUGO-->
+            <!-- bonjour je fais un test | SALUT BUGO | Qu'as tu changé ici ? -->
 
             </form>
 
