@@ -53,6 +53,8 @@ class VueJeuBridge
 
                             echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville=".$ville_id."><img src=\"".$src_image."\"></a>";
 
+
+
                        }
                        else
                        {

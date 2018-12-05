@@ -39,6 +39,25 @@ class Routeur{
           }
       }
 
+     if(isset($_GET['ville'])) {
+
+         for($i =1;$i<=9;$i++){
+
+             if($_GET['ville'] == $i){
+
+
+                 // controleur du jeu
+                 $this->ctrlJeu->afficher_bridge(); //pour l'instant
+
+             }
+
+
+         }
+
+     }
+
+
+
 
       if (isset($_POST['pseudo']) and isset($_POST['mdp'])) {
           if ($_POST['pseudo'] == "" or $_POST['mdp'] == "") {
