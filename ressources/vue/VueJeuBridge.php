@@ -45,14 +45,21 @@ class VueJeuBridge
                        <?php
                        if ($this->villes->existe($i,$j))
                        {
+
                            $laVille = $this->villes->getVille($i,$j);
                            $src_image = "../ressources/Image/numero".$laVille->getNombrePontsMax().".png";
 
                            $ville_id = $laVille->getId();
+                           if (isset($_GET['ville']))
+                           {
+                                if($_GET['ville']==$ville_id)
+                                {
+                                    $src_image = "../ressources/Image/vert/vnumero".$laVille->getNombrePontsMax().".png";
+                                }
+                           }
 
 
-                            echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville=".$ville_id."><img src=\"".$src_image."\"></a>";
-
+                           echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville=".$ville_id."><img src=\"".$src_image."\"></a>";
 
 
                        }
