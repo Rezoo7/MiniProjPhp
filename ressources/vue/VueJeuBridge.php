@@ -69,7 +69,15 @@ class VueJeuBridge
                        }
                        else
                        {
-                           echo "   ";
+                           $rand = random_int(0,3);
+                           if ($rand==0)
+                            echo "<img src=\"../ressources/IMage/Barres/BarreDoubleHorizontale.png\" width='50'>";
+                           if ($rand==1)
+                               echo "<img src=\"../ressources/IMage/Barres/BarreDoubleVerticale.png\" width='50'>";
+                           if ($rand==2)
+                               echo "<img src=\"../ressources/IMage/Barres/BarreSimpleHorizontale.png\" width='50'>";
+                           if ($rand==3)
+                               echo "<img src=\"../ressources/IMage/Barres/BarreSimpleVerticale.png\" width='50'>";
                        }
                        echo "</td>";
 
