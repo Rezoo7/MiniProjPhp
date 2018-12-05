@@ -6,7 +6,7 @@
  * Time: 18:51
  */
 
-require_once PATH_MODELE."Villes.php";
+require_once PATH_MODELE."/Villes.php";
 
 class VueJeuChanger
 {
@@ -60,8 +60,8 @@ class VueJeuChanger
 
                                 if($laVille->getID() == $idville){
 
-                                    $num_ville = $this->villes->getVilleID($idville)->getID();
-                                    $src_image = "../ressources/Image/vert/vnumero".$$num_ville->getNombrePontsMax().".png";
+                                    $ville_modif =$this->villes->getVille($i,$j);
+                                    $src_image = "../ressources/Image/vert/vnumero".$ville_modif->getNombrePontsMax().".png";
 
                                 }
 

@@ -7,10 +7,11 @@
  */
 
 require_once PATH_VUE."/VueJeuBridge.php";
-require_once PATH_VUE."VueJeuChanger.php";
-require_once PATH_MODELE."Partie.php";
-require_once PATH_MODELE."Villes.php";
-require_once PATH_VUE."VueJeuChanger.php";
+require_once PATH_VUE."/VueJeuChanger.php";
+require_once PATH_VUE."/VueJeuChanger.php";
+require_once PATH_MODELE."/Partie.php";
+require_once PATH_MODELE."/Villes.php";
+
 
 
 
