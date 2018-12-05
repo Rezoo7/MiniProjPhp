@@ -9,7 +9,7 @@ private $villes;
 function __construct(){
 // tableau représentatif d'un jeu qui servira à développer votre code
 
-$this->villes[0][0]=new Ville("0",3,0);
+$this->villes[0][1]=new Ville("0",3,0);
 $this->villes[0][6]=new Ville("1",2,0);
 $this->villes[3][0]=new Ville("2",6,0);
 $this->villes[3][5]=new Ville("3",2,0);
@@ -47,17 +47,16 @@ function getVilleID($id){
 
     function getVillePosX($id)
     {
-        for ($i=0; $i<  7; $i++)
+        for ($i=0; $i<7; $i++)
         {
             for ($j=0; $j<7; $j++)
             {
-                if($this->villes[$i][$j]->getId()==$id)
-                {
-                    return $i;
-                }
-                else
-                {
-                    return -1;
+                if(isset($this->villes[$i][$j])) {
+                    if ($this->villes[$i][$j]->getId() == $id) {
+                        return $i;
+                    } else {
+                        return -1;
+                    }
                 }
             }
         }
@@ -69,13 +68,12 @@ function getVilleID($id){
         {
             for ($j=0; $j<7; $j++)
             {
-                if($this->villes[$i][$j]->getId()==$id)
-                {
-                    return $j;
-                }
-                else
-                {
-                    return -1;
+                if(isset($this->villes[$i][$j])) {
+                    if ($this->villes[$i][$j]->getId() == $id) {
+                        return $j;
+                    } else {
+                        return -1;
+                    }
                 }
             }
         }
