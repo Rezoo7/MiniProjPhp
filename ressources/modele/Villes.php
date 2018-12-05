@@ -53,7 +53,7 @@ function getVilleID($id){
             {
                 if($this->villes[$i][$j]->getId()==$id)
                 {
-                    return $i;
+                    return 3;
                 }
                 else
                 {
@@ -71,7 +71,7 @@ function getVilleID($id){
             {
                 if($this->villes[$i][$j]->getId()==$id)
                 {
-                    return $j;
+                    return 4;
                 }
                 else
                 {

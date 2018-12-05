@@ -16,7 +16,7 @@ class Partie
     public function __construct()
     {
 
-        $this->ctrlJeu = new ControleurJeuBridge();
+        //$this->ctrlJeu = new ControleurJeuBridge();
 
     }
 

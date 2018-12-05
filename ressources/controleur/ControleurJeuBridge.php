@@ -49,6 +49,32 @@ class ControleurJeuBridge
 
         $this->TheVue = $this->vue_chan->changer($id_ville);
 
+        $x=$this->lesV->getVillePosX($id_ville);
+        $y=$this->lesV->getVillePosY($id_ville);
+
+        echo "coordonnées de ".$id_ville. " :". $x . ", " . $y;
+
+        if ($_GET['ville2']>-1)
+        {
+            $ville2=$_GET['ville2'];
+            $x=$this->lesV->getVillePosX($ville2);
+            $y=$this->lesV->getVillePosY($ville2);
+
+            echo "coordonnées de ".$ville2. " :". $x . "; " . $y;
+
+            if($this->lesV->getVillePosX($id_ville)==$this->lesV->getVillePosX($ville2) || $this->lesV->getVillePosY($id_ville)==$this->lesV->getVillePosY($ville2))
+            {
+                echo "YESS";
+                #$this->lesV->getVilleID($id_ville)->lierVilles($ville2);
+        }
+            else
+            {
+                echo "NOO";
+                #$this->TheVue = $this->vuejeu->afficher_jeu();
+            }
+        }
+
+
     }
 
     public function vue_actuelle(){
