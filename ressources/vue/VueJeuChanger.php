@@ -9,6 +9,7 @@
 
 class VueJeuChanger
 {
+    //TODO Nettoyer le code grâce a comparer_X($id1,$id2) et comparer_Y(same)
 
 
     /**
