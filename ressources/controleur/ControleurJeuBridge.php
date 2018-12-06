@@ -103,9 +103,10 @@ class ControleurJeuBridge
                 {
                     $_SESSION['liaison'][$_SESSION['nbrLiaison']]= array($id_ville, $ville2);
                     $_SESSION['nbrLiaison']++;
-                    var_dump($_SESSION['liaison']);
+
                     $couleur_mise = true;
                 }
+                var_dump($_SESSION['liaison']);
 
             }
 

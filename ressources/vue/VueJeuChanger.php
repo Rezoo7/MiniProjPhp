@@ -67,42 +67,28 @@ class VueJeuChanger
 
                                 } else {
 
+                                    foreach($_SESSION['liaison'] as $idvilles) {
+                                        $idville1 = $idvilles[0];
+                                        $idville2 = $idvilles[1];
 
-                                    if ($liste_villes->liaisonPossible($_GET['ville1'], $_GET['ville2'])) { // si liaison possible entre ville1 et ville2
+                                        $test_x = array($liste_villes->getVillePosX($idville2), $liste_villes->getVillePosX($idville1));
+                                        $test_y = array($liste_villes->getVillePosY($idville2), $liste_villes->getVillePosY($idville1));
 
+                                        if (($liste_villes->comparer_Y($idville1, $idville2)) && ($j == $liste_villes->getVillePosY($idville1)) && ($i < max($test_x)) && ($i > min($test_x))) {
 
-                                        $test_x = array($liste_villes->getVillePosX($_GET['ville2']), $liste_villes->getVillePosX($_GET['ville1']));
-                                        $test_y = array($liste_villes->getVillePosY($_GET['ville2']), $liste_villes->getVillePosY($_GET['ville1']));
-
-
-                                        if (($liste_villes->comparer_Y($_GET['ville1'],$_GET['ville2'] )) && ($j == $liste_villes->getVillePosY($_GET['ville1'])) && ($i < max($test_x)) && ($i > min($test_x))) {
-
-                                            if($_SESSION['nombreliaison'] == 0) { // si aucun lien entre les villes
-
-                                                $src_image = "../ressources/Image/Barres/BarreSimpleVerticale.png";
-                                                echo "<img src=\"" . $src_image . "\">";
-                                            }
-                                            elseif($_SESSION['nombreliaison'] == 1){
-
-                                                $src_image = "../ressources/Image/Barres/BarreDoubleVerticale.png";
-                                                echo "<img src=\"" . $src_image . "\">";
-                                            }
+                                            $src_image = "../ressources/Image/Barres/BarreSimpleVerticale.png";
+                                            echo "<img src=\"" . $src_image . "\">";
 
                                         }
-                                        if (($liste_villes->comparer_X($_GET['ville1'],$_GET['ville2'] )) && ($i == $liste_villes->getVillePosX($_GET['ville1'])) && ($j < max($test_y)) && ($j > min($test_y))) {
+                                        if (($liste_villes->comparer_X($idville1, $idville2)) && ($i == $liste_villes->getVillePosX($idville1)) && ($j < max($test_y)) && ($j > min($test_y))) {
 
-                                            if($_SESSION['nombreliaison'] == 0) { // si aucun lien entre les villes
+                                            $src_image = "../ressources/Image/Barres/BarreSimpleHorizontale.png";
+                                            echo "<img src=\"" . $src_image . "\">";
 
-                                                $src_image = "../ressources/Image/Barres/BarreSimpleHorinzontale.png";
-                                                echo "<img src=\"" . $src_image . "\">";
-                                            }
-                                            elseif($_SESSION['nombreliaison'] == 1){
-
-                                                $src_image = "../ressources/Image/Barres/BarreDoubleHorinzontale.png";
-                                                echo "<img src=\"" . $src_image . "\">";
-                                            }
                                         }
                                     }
+
+
                                     echo "   ";
                                 }
                                 echo "</td>";
