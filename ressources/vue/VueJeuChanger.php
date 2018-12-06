@@ -75,13 +75,13 @@ class VueJeuChanger
                                         $test_y = array($liste_villes->getVillePosY($_GET['ville2']), $liste_villes->getVillePosY($_GET['ville1']));
 
 
-                                        if (($liste_villes->getVillePosY($_GET['ville1']) == $liste_villes->getVillePosY($_GET['ville2'])) && ($j == $liste_villes->getVillePosY($_GET['ville1'])) && ($i < max($test_x)) && ($i > min($test_x))) {
+                                        if (($liste_villes->comparer_Y($_GET['ville1'],$_GET['ville2'] )) && ($j == $liste_villes->getVillePosY($_GET['ville1'])) && ($i < max($test_x)) && ($i > min($test_x))) {
 
                                             $src_image = "../ressources/Image/Barres/BarreSimpleVerticale.png";
                                             echo "<img src=\"" . $src_image . "\">";
 
                                         }
-                                        if (($liste_villes->getVillePosX($_GET['ville1']) == $liste_villes->getVillePosX($_GET['ville2'])) && ($i == $liste_villes->getVillePosX($_GET['ville1'])) && ($j < max($test_y)) && ($j > min($test_y))) {
+                                        if (($liste_villes->comparer_X($_GET['ville1'],$_GET['ville2'] )) && ($i == $liste_villes->getVillePosX($_GET['ville1'])) && ($j < max($test_y)) && ($j > min($test_y))) {
 
                                             $src_image = "../ressources/Image/Barres/BarreSimpleHorizontale.png";
                                             echo "<img src=\"" . $src_image . "\">";
