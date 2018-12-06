@@ -27,54 +27,55 @@ function getVille($i,$j){
 return $this->villes[$i][$j];
 }
 
-
+// retourne une ville grâce à son ID.
 function getVilleID($id){
-    for ($i=0; $i<7; $i++)
+    for ($i=0; $i<7; $i++) //Parcours de X
     {
-        for ($j=0; $j<7; $j++)
+        for ($j=0; $j<7; $j++) //Parcours de Y
         {
-            if(isset($this->villes[$i][$j]) && $this->villes[$i][$j]->getId()==$id)
-            {
-                return $this->villes[$i][$j];
+            if(isset($this->villes[$i][$j]) && $this->villes[$i][$j]->getId()==$id) //Si la case sur laquelle je pointe contient une ville
+            {//et que  l'ID de la ville recherchée est le même que la ville pointée
+                return $this->villes[$i][$j]; // alors je retourne la ville en question.
             }
+            //sinon je test jusqu'à avoir atteint toutes les coordonnées possibles.
         }
     }
-    return null;
+    return null; // SI rien est trouvé on retourne null.
     }
 
+    //Retourne la positionX de la ville reherchée, grâce à son ID.
     function getVillePosX($id)
     {
 
-        for ($i=0; $i<7; $i++)
+        for ($i=0; $i<7; $i++) //parcours de X
         {
 
-            for ($j=0; $j<7; $j++)
+            for ($j=0; $j<7; $j++) //parcours de Y
             {
-                if(isset($this->villes[$i][$j])) {
-                    if ($this->villes[$i][$j]->getId() == $id) {
-                        return $i;
-                    }
+                if(isset($this->villes[$i][$j])&&($this->villes[$i][$j]->getId() == $id))  //si la case n'est pas vide
+                { // et que  l'ID de la ville recherchée est le même que la ville pointée
+                        return $i; //renvoie la valeur i actuelle.
+
                     }
                 }
-            }
-        return -1;
+            }//on continue jusqu'à la fin des coordonnées.
+        return -1; //s'il n'a pas de position x alors on retourne -1.
         }
 
-
+    //Retourne la positionX de la ville reherchée, grâce à son ID.
     function getVillePosY($id)
     {
-        for ($i=0; $i<7; $i++)
+        for ($i=0; $i<7; $i++)//parcours de X
         {
-            for ($j=0; $j<7; $j++)
+            for ($j=0; $j<7; $j++) //parcours de Y
             {
-                if(isset($this->villes[$i][$j])) {
-                    if ($this->villes[$i][$j]->getId() == $id) {
-                        return $j;
-                    }
-                    }
+                if(isset($this->villes[$i][$j])&&($this->villes[$i][$j]->getId() == $id)) //si la case n'est pas vide
+                {  // et que  l'ID de la ville recherchée est le même que la ville pointée
+                    return $j;  //renvoie la valeur j actuelle.
                 }
-            }
-        return -1;
+                }
+            }//on continue jusqu'à la fin des coordonnées.
+        return -1; //s'il n'a pas de position Y alors on retourne -1.
         }
 
 
@@ -95,65 +96,55 @@ return isset($this->villes[$i][$j]);
 }
 
 //Retourne vrai s'il y a liaison possible entre deux villes.
-
 function liaisonPossible($ville1, $ville2)
 {
 
-
+    //On récupère toutes les coordonnées X,Y des deux villes.
     $vPosition_x1= $this->getVillePosX($ville1);
     $vPosition_x2= $this->getVillePosX($ville2);
     $vPosition_y1= $this->getVillePosY($ville1);
     $vPosition_y2= $this->getVillePosY($ville2);
 
+    //Cas erreur qui renvois FAUX si les deux villes ont des coordonnées totalement différentes ou totalement égale.
     if($vPosition_x1!=$vPosition_x2 && $vPosition_y1!=$vPosition_y2 || $vPosition_x1==$vPosition_x2 && $vPosition_y1==$vPosition_y2)
-
         return false;
-    else
+    else //Cas d'alignement entre deux villes
     {
 
-        if($vPosition_x1==$vPosition_x2)
+        if($vPosition_x1==$vPosition_x2) //soi elle sont liées sur X
         {
-            if($vPosition_y1<$vPosition_y2)
+            if($vPosition_y1<$vPosition_y2) //Si Y de la ville 2 est supérieur à Y de la ville 1
             {
                 $tmp = $vPosition_y1;
                 $vPosition_y1=$vPosition_y2;
-                $vPosition_y2=$tmp;
+                $vPosition_y2=$tmp; //on inverse le tout (on pourrait aussi utiliser max()) #TODO corriger ce détail#
             }
 
-            for ($i=$vPosition_y2+1; $i<$vPosition_x1; $i++)
+            for ($i=$vPosition_y2+1; $i<$vPosition_y1; $i++) //pour i allant de la coordonnée du plus petit Y jusqu'à l'autre
             {
-
-                    if($this->existe($vPosition_x2,$i))
-                    {
-
-                        return false;
-                    }
-            }
-            return true;
+                    if($this->existe($vPosition_x2,$i)) // si i est une ville, alors il existe une ville entre ville 1 et ville 2
+                        return false; //alors on retourne faux.
+            }//on continue de parcourir jusqu'à la fin
+            return true; //sinon VRAI.
         }
 
-        if ($vPosition_y1==$vPosition_y2)
+        if ($vPosition_y1==$vPosition_y2) //soi elle sont liées sur Y
             {
 
-                if($vPosition_x1<$vPosition_x2)
+                if($vPosition_x1<$vPosition_x2) //Si X de la ville 2 est supérieur à X de la ville 1
                 {
                     $tmp = $vPosition_x1;
                     $vPosition_x1=$vPosition_x2;
-                    $vPosition_x2=$tmp;
-
-
+                    $vPosition_x2=$tmp; //on inverse le tout (on pourrait aussi utiliser max()) #TODO corriger ce détail#
                 }
 
-                for ($i=$vPosition_x2+1; $i<$vPosition_x1; $i++)
+                for ($i=$vPosition_x2+1; $i<$vPosition_x1; $i++) //pour i allant de la coordonnée du plus petit X jusqu'à l'autre
                 {
 
-                    if($this->existe($i, $vPosition_y2))
-                    {
-                        return false;
-                    }
-                    }
-
-                return true;
+                    if($this->existe($i, $vPosition_y2)) // si i est une ville, alors il existe une ville entre ville 1 et ville 2
+                        return false; //alors on retourne faux.
+                    }//on continue de parcourir jusqu'à la fin
+                return true; //Sinon on retourne VRAI
                 }
             }
 

@@ -58,15 +58,16 @@ class Ville{
 
     function lierVilles($ville){
 
-        if($this->nombrePonts <= $this->getNombrePontsMax()){
+        if($this->nombrePonts <= $this->getNombrePontsMax()){ //vérifiaction de si le nombre de pont max n'est pas atteint
 
-            $this->villesLiees[$this->nombrePonts] = $ville;
-            $this->addPont();
-            return true;
+            $this->villesLiees[$this->nombrePonts] = $ville; //On associe le nombre de pont actuelle et la ville dans l'arrays de liaisons.
+            //NombrePonts sert ici de clé pour atteindre la ville
+            $this->addPont(); //On incrémente pont.
+            return true; //On retourne vrai si l'action à été faite.
         }
         else{
 
-            return false;
+            return false; //sinon on retourne faux.
         }
     }
 
