@@ -101,8 +101,48 @@ class ControleurJeuBridge
 
                 if ($this->lesV->liaisonPossible($id_ville, $ville2) && $this->lesV->getVilleID($id_ville)->lierVilles($ville2))
                 {
-                    $_SESSION['liaison'][$_SESSION['nbrLiaison']]= array($id_ville, $ville2);
-                    $_SESSION['nbrLiaison']++;
+                    if(!empty($_SESSION['liaison'])) {
+                        $exist=false;
+                        $depasserNombre = false;
+                        $nbr=0;
+                        $nbrDefinitif=0;
+                        foreach ($_SESSION['liaison'] as $association) {
+                            $v1 = $association[0];
+                            $v2 = $association[1];
+                            $nombre = $association[2];
+
+                            if (($v1 == $id_ville && $v2 == $ville2 || $v2 == $id_ville && $v1 == $ville2) && $nombre < 2) {
+                                $exist=true;
+                                $nbrDefinitif=$nbr;
+                            }
+                            if($nombre>=2)
+                            {
+                                $depasserNombre=true;
+                            }
+                        $nbr++;
+                        }
+
+                        if($exist && !$depasserNombre)
+                        {
+                            #var_dump($_SESSION['liaison'][$nbrDefinitif]);
+                            $_SESSION['liaison'][$nbrDefinitif][2]++;
+                        }
+                        else if($depasserNombre) {
+                            echo "<br/>I WILL BUILD A WALL";
+                        }
+                        else if(!$exist)
+                        {
+                            $_SESSION['liaison'][$_SESSION['nbrLiaison']] = array($id_ville, $ville2, 1);
+                            $_SESSION['nbrLiaison']++;
+                        }
+
+                    }
+                    else
+                    {
+                        $_SESSION['liaison'][$_SESSION['nbrLiaison']] = array($id_ville, $ville2, 1);
+                        $_SESSION['nbrLiaison']++;
+                    }
+
 
                     $couleur_mise = true;
                 }
