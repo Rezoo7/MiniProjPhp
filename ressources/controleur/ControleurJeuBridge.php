@@ -68,7 +68,30 @@ class ControleurJeuBridge
                 //TODO
                 //utiliser la fonction de liaison entre villes
                 //et accéssoirement afficher les ponts
-                echo "LIAISON POSSIBLE";
+
+                for ($i = 0; $i <= 9;$i++){
+                    for ($j=0;$j<=9;$j++){
+
+                        // si la position x de la ville tester est superieur
+                        // à la ville clikee et inf à celui de ville2 alors NOP
+                        // = si il y a une ville entre les deux
+
+
+
+                        if( !($this->lesV->existe($i,$j) && ((($i > $x1) && ($i < $x2)) || (($j > $y1) && ($j < $y2))))  ){
+
+                            echo "LIAISON POSSIBLE";
+
+                        }else{
+                            echo "ville entre les deux !";
+                        }
+
+                    }
+                }
+
+
+
+
                 $this->lesV->getVilleID($id_ville)->lierVilles($ville2); //ça ça donne une errreur que je ne sais pas trop ce que ça veut dire faut check ville.php->lierVilles
         }
             else
@@ -78,6 +101,8 @@ class ControleurJeuBridge
                 echo "NOPE";
                 $this->afficher_bridge(); //ici ça rajoute en dessous un jeu c'est l'enfer
                 #$this->TheVue = $this->vuejeu->afficher_jeu();
+
+
             }
         }
 
