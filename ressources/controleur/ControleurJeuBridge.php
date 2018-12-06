@@ -60,13 +60,14 @@ class ControleurJeuBridge
     }
 
 
-    public function couleur_ville($liste_villes){
+    public function couleur_ville($id_ville){
 
         $couleur_mise = false;
 
         $this->TheVue = $this->vue_chan->changer($_SESSION['listes_villes']);
         //TODO a revoir cette ligne
-        $id_ville = $liste_villes->getId();
+
+
 
         $x1=$this->lesV->getVillePosX($id_ville);
         $y1=$this->lesV->getVillePosY($id_ville);
@@ -86,9 +87,8 @@ class ControleurJeuBridge
             {
                             $couleur_mise = true;
                             $this->lesV->getVilleID($id_ville)->lierVilles($ville2);
-                            $array[] = ($this->lesV->getVilleID($id_ville)->getLiaison());
-                            foreach($array as $ar)
-                                echo var_dump($ar);
+
+
             }
             else
             {
@@ -111,18 +111,6 @@ class ControleurJeuBridge
 
 
 
-    public function modifier_jeu($id_ville){
-
-        $laville = $this->lesV->getVilleID($id_ville);
-
-        if($this->partie_mod->isSelected($laville)){
-
-
-
-        }
-
-
-    }
 
 
 }
