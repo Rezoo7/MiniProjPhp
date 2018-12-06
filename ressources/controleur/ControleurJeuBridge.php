@@ -69,15 +69,15 @@ class ControleurJeuBridge
             {
                             #$this->lesV->getVilleID($id_ville)->lierVilles($ville2);
                             $couleur_mise = true;
-                            echo "YESS";
 
 
-                #$this->lesV->getVilleID($id_ville)->lierVilles($ville2); //ça ça donne une errreur que je ne sais pas trop ce que ça veut dire faut check ville.php->lierVilles
+
+                $this->lesV->getVilleID($id_ville)->lierVilles($ville2); //ça ça donne une errreur que je ne sais pas trop ce que ça veut dire faut check ville.php->lierVilles
         }
             else
             {
 
-                echo "NOPE";
+                $this->TheVue = $this->vuejeu->afficher_jeu($id_ville);
 
 
             }
