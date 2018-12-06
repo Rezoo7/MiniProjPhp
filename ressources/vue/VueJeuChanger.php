@@ -38,17 +38,12 @@ class VueJeuChanger
             <?php
 
             if(isset($_SESSION['listes_villes'])) {
-
+                #echo $_SESSION['listes_villes'];
+                echo $liste_villes;
                 for ($i = 0; $i <= 6; $i++) {
-                    ?>
-                    <tr>
-
-                        <?php
+                    echo"<tr>";
                         for ($j = 0; $j <= 6; $j++) {
-                            ?>
-                            <td>
-                                <?php
-
+                            echo"<td>";
                                 if ($liste_villes->existe($i, $j)) {
 
                                     $laVille = $liste_villes->getVille($i, $j);
@@ -95,23 +90,15 @@ class VueJeuChanger
 
                                             $src_image = "../ressources/Image/Barres/BarreSimpleHorizontale.png";
                                             echo "<img src=\"" . $src_image . "\">";
-
                                         }
-
-
                                     }
-
                                     echo "   ";
-
                                 }
-                                ?></td>
-                            <?php
+                                echo "</td>";
                         }
-                        ?>  </tr>
-                    <?php
+                          echo"</tr>";
                 }
             }
-
             ?>
         </table>
         <!-- bonjour je fais un test | SALUT BUGO | Yo Monsieur REZOO hhh-->
