@@ -108,6 +108,7 @@ class VueJeuChanger
                             }
 
                                 echo "   ";
+
                             }
                             ?></td>
                         <?php
