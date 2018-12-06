@@ -47,6 +47,8 @@ class ControleurJeuBridge
 
     public function couleur_ville($id_ville){
 
+        $couleur_mise = false;
+
         $this->TheVue = $this->vue_chan->changer($id_ville);
 
         $x1=$this->lesV->getVillePosX($id_ville);
@@ -63,48 +65,47 @@ class ControleurJeuBridge
 
             echo "<br/>coordonnées de ".$ville2. " :  ". $x2 . "; " . $y2 ."<br/>";
 
-            if($x1==$x2 || $y1==$y2)
+            if($this->lesV->liaisonPossible($id_ville, $_GET['ville2']))
             {
                 //TODO
                 //utiliser la fonction de liaison entre villes
                 //et accéssoirement afficher les ponts
 
-                for ($i = 0; $i <= 9;$i++){
+                /*for ($i = 0; $i <= 9;$i++){
                     for ($j=0;$j<=9;$j++){
 
                         // si la position x de la ville tester est superieur
                         // à la ville clikee et inf à celui de ville2 alors NOP
                         // = si il y a une ville entre les deux
 
-
-
                         if( !($this->lesV->existe($i,$j) && ((($i > $x1) && ($i < $x2)) || (($j > $y1) && ($j < $y2))))  ){
+*/
+                            $this->lesV->getVilleID($id_ville)->lierVilles($ville2);
+                            $couleur_mise = true;
+                            echo "YESS";
 
-                            echo "LIAISON POSSIBLE";
-
-                        }else{
-                            echo "ville entre les deux !";
+                        /*}else{
+                            echo "Ville entre les deux !";
+                            $couleur_mise=false;
+                            break;
                         }
 
                     }
-                }
+                }*/
 
 
-
-
-                $this->lesV->getVilleID($id_ville)->lierVilles($ville2); //ça ça donne une errreur que je ne sais pas trop ce que ça veut dire faut check ville.php->lierVilles
+                #$this->lesV->getVilleID($id_ville)->lierVilles($ville2); //ça ça donne une errreur que je ne sais pas trop ce que ça veut dire faut check ville.php->lierVilles
         }
             else
             {
-                //TODO
-                //Faire en sorte de retourner à la branche de départ.
+
                 echo "NOPE";
-                $this->afficher_bridge(); //ici ça rajoute en dessous un jeu c'est l'enfer
-                #$this->TheVue = $this->vuejeu->afficher_jeu();
 
 
             }
         }
+
+        return $couleur_mise;
 
 
     }

@@ -51,13 +51,42 @@ class VueJeuChanger
 
                                 $laVille = $this->villes->getVille($i,$j);
                                 $src_image = "../ressources/Image/numero".$laVille->getNombrePontsMax().".png";
-
+                                    //vérification de la séléction :
                                 if($laVille->getID() == $idville || $laVille->getID()==$_GET["ville2"] ) {
 
-                                    $ville_modif = $this->villes->getVille($i, $j);
-                                    $src_image = "../ressources/Image/vert/vnumero" . $ville_modif->getNombrePontsMax() . ".png";
 
+
+                                    $ville_modif = $this->villes->getVille($i, $j);
+                                    #$src_image = "../ressources/Image/vert/vnumero" . $ville_modif->getNombrePontsMax() . ".png";
+                                    /*
+                                    if (!($this->villes->getVillePosX($idville) == $this->villes->getVillePosX($_GET['ville2']) xor $this->villes->getVillePosY($idville) == $this->villes->getVillePosY($_GET['ville2']))) {
+
+                                        $src_image = "../ressources/Image/rouge/rnumero" . $laVille->getNombrePontsMax() . ".png";
+                                    } else {
+
+                                        if (!((($i > $this->villes->getVillePosX($idville)) && ($i < $this->villes->getVillePosX($_GET['ville2'])))
+                                                || (($j > $this->villes->getVillePosY($idville)) && ($j < $this->villes->getVillePosY($_GET['ville2']))))
+                                            || (($i < $this->villes->getVillePosX($idville)) && ($i > $this->villes->getVillePosX($_GET['ville2'])))
+                                            || (($j < $this->villes->getVillePosY($idville)) && ($j < $this->villes->getVillePosY($_GET['ville2'])))) {
+
+                                            $src_image = "../ressources/Image/rouge/rnumero" . $laVille->getNombrePontsMax() . ".png";
+                                            echo "NANIIII";
+
+                                        }
+                                    }*/
+
+
+                                    if($this->villes->liaisonPossible($idville,$_GET['ville2']))
+                                    {
+                                        $src_image = "../ressources/Image/vert/vnumero" . $ville_modif->getNombrePontsMax() . ".png";
+
+                                    }
+                                    else {
+                                        $src_image = "../ressources/Image/rouge/rnumero" . $ville_modif->getNombrePontsMax() . ".png";
+
+                                    }
                                 }
+
 
                                 $ville_id = $laVille->getId();
 

@@ -57,7 +57,7 @@ class Ville{
 
                 $this->villesLiees= array();
             }
-            $this->villesLiees[] = $ville;;;
+            $this->villesLiees[] = $ville;
         }
         else{
 
