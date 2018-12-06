@@ -99,7 +99,7 @@ class ControleurJeuBridge
                 $y2 = $this->lesV->getVillePosY($ville2);
 
 
-                if ($this->lesV->liaisonPossible($id_ville, $ville2) && $this->lesV->getVilleID($id_ville)->lierVilles($ville2))  // Si liaison possible enregistrer dans deux variables de sessions => deux id de villes
+                if ($this->lesV->liaisonPossible($id_ville, $ville2) && $this->lesV->getVilleID($id_ville)->lierVilles($ville2))
                 {
                     $_SESSION['liaison'][$_SESSION['nbrLiaison']]= array($id_ville, $ville2);
                     $_SESSION['nbrLiaison']++;

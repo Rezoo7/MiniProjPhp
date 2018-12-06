@@ -12,7 +12,7 @@ class VueJeuBridge
 
 
 
-    public function afficher_jeu($listes_villes){
+    public function afficher_jeu($liste_villes){
 
 
         ?>
@@ -27,6 +27,7 @@ class VueJeuBridge
             <body>
 
             <h1> Bienvenue Sur le Jeu du Bridge ! </h1>
+            <h4> Nombre de ponts à construire : <?php echo " ".$liste_villes->total_Ponts()?></h4>
             <br>
             <br>
             <table class="center" cellpadding="0" cellspacing="0" border="0">
@@ -43,9 +44,9 @@ class VueJeuBridge
 
                        echo "<td>";
 
-                       if ($listes_villes->existe($i,$j)) {
+                       if ($liste_villes->existe($i,$j)) {
 
-                           $laVille = $listes_villes->getVille($i, $j);
+                           $laVille = $liste_villes->getVille($i, $j);
                            $src_image = "../ressources/Image/numero" . $laVille->getNombrePontsMax() . ".png";
 
                            $ville_id = $laVille->getId();

@@ -190,6 +190,25 @@ return isset($this->villes[$i][$j]);
     }
 
 
+    public function total_Ponts(){
+
+        $total = 0;
+
+        for ($i=0; $i<7; $i++)//parcours de X
+        {
+            for ($j=0; $j<7; $j++) //parcours de Y
+            {
+                if($this->existe($i,$j)){
+
+                    $total = $total + $this->getVille($i,$j)->getNombrePontsMax();
+                }
+            }
+        }
+        return $total;
+
+    }
+
+
 
 //rajout d'éventuelles méthodes
 
