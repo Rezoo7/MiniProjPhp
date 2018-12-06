@@ -24,10 +24,16 @@ button {
     border-radius:50%;
     color:#555;
 
-    display: inline-table;
-    margin: auto;
+
 }
 
+#lesboutons{
+
+    margin: auto;
+    display: table-row;
+
+
+}
 
 /*------------------------------ */
 

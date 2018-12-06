@@ -44,7 +44,6 @@ class Routeur{
       }
 
 
-
      if(isset($_GET['ville1'])) {
 
          for($i =0;$i<=9;$i++){
@@ -60,7 +59,6 @@ class Routeur{
          }
 
      }
-
 
 
 

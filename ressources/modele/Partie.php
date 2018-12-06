@@ -106,5 +106,20 @@ class Partie
 
     }
 
+    /**
+     * Fonction qui permet d'obtenir le classement du jeu grâce à la base de donnée
+     * @return classement des meilleurs joueurs
+     */
+    public function meilleurs_Joueurs(){
+
+        $statement = $this->connexion->query("SELECT pseudo, COUNT(partieGagnee) p FROM parties WHERE partieGagnee =1 GROUP BY pseudo ORDER BY p DESC LIMIT 3 ");
+        $statement->execute();
+        $classement = $statement->fetchAll();
+
+        return $classement;
+
+
+    }
+
 
 }
