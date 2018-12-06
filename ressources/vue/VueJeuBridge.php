@@ -52,8 +52,9 @@ class VueJeuBridge
                        }
                        else
                        {
-                           echo "   ";
+                           echo "  <br/>";
                        }
+
                        echo "</td>";
 
                    }

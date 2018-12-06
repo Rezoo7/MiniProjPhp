@@ -57,24 +57,6 @@ class VueJeuChanger
 
 
                                     $ville_modif = $this->villes->getVille($i, $j);
-                                    #$src_image = "../ressources/Image/vert/vnumero" . $ville_modif->getNombrePontsMax() . ".png";
-                                    /*
-                                    if (!($this->villes->getVillePosX($idville) == $this->villes->getVillePosX($_GET['ville2']) xor $this->villes->getVillePosY($idville) == $this->villes->getVillePosY($_GET['ville2']))) {
-
-                                        $src_image = "../ressources/Image/rouge/rnumero" . $laVille->getNombrePontsMax() . ".png";
-                                    } else {
-
-                                        if (!((($i > $this->villes->getVillePosX($idville)) && ($i < $this->villes->getVillePosX($_GET['ville2'])))
-                                                || (($j > $this->villes->getVillePosY($idville)) && ($j < $this->villes->getVillePosY($_GET['ville2']))))
-                                            || (($i < $this->villes->getVillePosX($idville)) && ($i > $this->villes->getVillePosX($_GET['ville2'])))
-                                            || (($j < $this->villes->getVillePosY($idville)) && ($j < $this->villes->getVillePosY($_GET['ville2'])))) {
-
-                                            $src_image = "../ressources/Image/rouge/rnumero" . $laVille->getNombrePontsMax() . ".png";
-                                            echo "NANIIII";
-
-                                        }
-                                    }*/
-
 
                                     if($this->villes->liaisonPossible($idville,$_GET['ville2']))
                                     {
@@ -98,6 +80,33 @@ class VueJeuChanger
                             }
                             else
                             {
+
+
+                                if($this->villes->liaisonPossible($idville,$_GET['ville2'])){
+
+
+                                    $test_x = array($this->villes->getVillePosX($_GET['ville2']), $this->villes->getVillePosX($idville));
+                                    $test_y = array($this->villes->getVillePosY($_GET['ville2']), $this->villes->getVillePosY($idville));
+
+
+
+                                    if(($this->villes->getVillePosY($idville) == $this->villes->getVillePosY($_GET['ville2'])) &&($j == $this->villes->getVillePosY($idville)) && ($i <  max($test_x)) && ($i >  min($test_x))){
+
+                                        $src_image = "../ressources/Image/Barres/BarreSimpleVerticale.png";
+                                        echo "<img src=\"".$src_image."\">";
+
+                                    }
+                                    if(($this->villes->getVillePosX($idville) == $this->villes->getVillePosX($_GET['ville2'])) &&($i == $this->villes->getVillePosX($idville)) && ($j <  max($test_y)) && ($j >  min($test_y))){
+
+                                        $src_image = "../ressources/Image/Barres/BarreSimpleHorizontale.png";
+                                        echo "<img src=\"".$src_image."\">";
+
+                                    }
+
+
+
+                            }
+
                                 echo "   ";
                             }
                             ?></td>
