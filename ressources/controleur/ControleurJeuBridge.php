@@ -66,8 +66,6 @@ class ControleurJeuBridge
 
         $this->TheVue = $this->vue_chan->changer($_SESSION['listes_villes']);
 
-        //TODO a revoir cette ligne
-
         $x1=$this->lesV->getVillePosX($id_ville);
         $y1=$this->lesV->getVillePosY($id_ville);
 
@@ -80,16 +78,29 @@ class ControleurJeuBridge
             $x2=$this->lesV->getVillePosX($ville2);
             $y2=$this->lesV->getVillePosY($ville2);
 
-            echo "<br/>coordonnées de ".$ville2. " :  ". $x2 . "; " . $y2 ."<br/>";
 
-            if($this->lesV->liaisonPossible($_GET['ville1'], $_GET['ville2']))
+
+            if($this->lesV->liaisonPossible($_GET['ville1'], $_GET['ville2']) && (($this->lesV->getVilleID($_GET['ville1'])->getNombrePonts() > $this->lesV->getVilleID($_GET['ville1'])->getNombrePontsMax())
+                && ($this->lesV->getVilleID($_GET['ville1'])->getNombrePonts() > $this->lesV->getVilleID($_GET['ville1'])->getNombrePontsMax())))
             {
                             $couleur_mise = true;
-                            $this->lesV->getVilleID($id_ville)->lierVilles($ville2);
+                            $this->lesV->getVilleID($id_ville)->lierVilles($ville2);  // Si liaison possible enregistrer dans deux variables de sessions => deux id de villes
+
+
+
+                if((!isset($_SESSION['ville1']) && !isset($_SESSION['ville2'])) && (!empty($_SESSION['ville1']) && empty($_SESSION['ville2']))){
+
+
+                    $_SESSION['ville1'] = $_GET['ville1'];  // IDs enregistrer dans les var sessions
+                    $_SESSION['ville2'] = $_GET['ville2'];
+
+                }
 
 
             }
         }
+
+
 
         return $couleur_mise;
 

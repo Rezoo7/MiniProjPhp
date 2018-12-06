@@ -31,11 +31,16 @@ class Routeur{
 
               case 'deconnexion':
                   unset($_SESSION['pseudo']);
+                  unset($_SESSION['listes_villes']);
+                  unset($_SESSION['ville1']);
+                  unset($_SESSION['ville2']);
                   session_destroy();
                   break;
 
               case 'recommencer':
                   unset($_SESSION['listes_villes']);
+                  unset($_SESSION['ville1']);
+                  unset($_SESSION['ville2']);
 
 
               default:

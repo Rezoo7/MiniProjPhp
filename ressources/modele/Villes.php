@@ -83,9 +83,10 @@ function getVilleID($id){
      * Compare les coordonnées X de de villes en paramètres
      * Entrées par leurs ID !
      *
+     *
      * @param $id1
      * @param $id2
-     * @return bool
+     * @return bool retourne vrai si egaux ou faux sinon
      */
 
         function comparer_X($id1,$id2){
@@ -101,7 +102,7 @@ function getVilleID($id){
      *
      * @param $id1
      * @param $id2
-     * @return bool
+     * @return bool retourn vrai si egaux ou faux sinon
      */
 
     function comparer_Y($id1,$id2){
