@@ -45,13 +45,13 @@ class Routeur{
 
 
 
-     if(isset($_GET['ville'])) {
+     if(isset($_GET['ville1'])) {
 
          for($i =0;$i<=9;$i++){
 
-             if($_GET['ville'] == $i){
+             if($_GET['ville1'] == $i){
 
-                $this->ctrlJeu->couleur_ville($_GET['ville']);
+                $this->ctrlJeu->couleur_ville($_GET['ville1']);
                 $this->ctrlJeu->vue_actuelle();
 
              }
