@@ -27,16 +27,15 @@ button {
     color:#555;
 
 
+
 }
 
-#lesboutons{
+.boutons button{
 
     margin: auto;
-
-    display: table-row;
-
-
+    display: inline-block;
 }
+
 
 /*------------------------------ */
 
