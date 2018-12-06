@@ -39,9 +39,24 @@ class ControleurJeuBridge
     }
 
 
+    /**
+     * Fonction qui permet d'afficher l'etat du plateau en fonctino du déroulement de la partie grace a la
+     * variable de session listes_villes
+     */
+
     public function afficher_bridge(){
 
-       $this->TheVue = $this->vuejeu->afficher_jeu();
+        if(!isset($SESSION['listes_villes']) or $_SESSION['listes_villes'] == null) {
+            $this->TheVue = $this->vuejeu->afficher_jeu();
+            $villes = new Villes();
+            $_SESSION['listes_villes'] = $villes;
+
+            $this->TheVue = $this->vuejeu->afficher_jeu();
+        }else{
+            echo"Variable session => ";
+            var_dump($_SESSION['listes_villes']);
+            $this->TheVue = $this->vue_chan->changer($_SESSION['listes_villes']);
+        }
     }
 
 

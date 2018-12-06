@@ -34,6 +34,10 @@ class Routeur{
                   session_destroy();
                   break;
 
+              case 'recommencer':
+                  unset($_SESSION['listes_villes']);
+
+
               default:
                   break;
           }
@@ -87,7 +91,6 @@ class Routeur{
           $this->ctrlJeu->afficher_bridge();
           $this->ctrlJeu->vue_actuelle();
 
-          //controleur d'affichage jeu() + modifier jeu()
       }
 
   }
