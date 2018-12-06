@@ -93,13 +93,12 @@ class ControleurJeuBridge
                 $y2 = $this->lesV->getVillePosY($ville2);
 
 
-                if ($this->lesV->liaisonPossible($_GET['ville1'], $_GET['ville2']) && (($this->lesV->getVilleID($_GET['ville1'])->getNombrePonts() > $this->lesV->getVilleID($_GET['ville1'])->getNombrePontsMax())
-                        && ($this->lesV->getVilleID($_GET['ville1'])->getNombrePonts() > $this->lesV->getVilleID($_GET['ville1'])->getNombrePontsMax()))) {
+                if ($this->lesV->getVilleID($id_ville)->lierVilles($ville2))  // Si liaison possible enregistrer dans deux variables de sessions => deux id de villes
                     $couleur_mise = true;
-                    $this->lesV->getVilleID($id_ville)->lierVilles($ville2);  // Si liaison possible enregistrer dans deux variables de sessions => deux id de villes
 
 
-                }
+
+
             }
 
 

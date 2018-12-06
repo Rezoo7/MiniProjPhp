@@ -63,6 +63,8 @@ class Ville{
             $this->villesLiees[$this->nombrePonts] = $ville; //On associe le nombre de pont actuelle et la ville dans l'arrays de liaisons.
             //NombrePonts sert ici de clé pour atteindre la ville
             $this->addPont(); //On incrémente pont.
+
+            echo "Nombre de pont de " . $ville . " -> " . $this->nombrePonts;
             return true; //On retourne vrai si l'action à été faite.
         }
         else{
