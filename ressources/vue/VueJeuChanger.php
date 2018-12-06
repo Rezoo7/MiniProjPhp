@@ -13,7 +13,9 @@ class VueJeuChanger
 
     private $villes;
 
-
+    /**
+     * @param $liste_villes tableau de villes passe en parametres
+     */
 
     public function changer($liste_villes){
 
@@ -37,84 +39,79 @@ class VueJeuChanger
 
             if(isset($_SESSION['listes_villes'])) {
 
-                foreach ($_SESSION['liste_villes'] as $ville) {
+                for ($i = 0; $i <= 6; $i++) {
+                    ?>
+                    <tr>
 
-                    $idville = $ville->getId();
+                        <?php
+                        for ($j = 0; $j <= 6; $j++) {
+                            ?>
+                            <td>
+                                <?php
 
-                    for ($i = 0; $i <= 6; $i++) {
-                        ?>
-                        <tr>
+                                if ($liste_villes->existe($i, $j)) {
 
-                            <?php
-                            for ($j = 0; $j <= 6; $j++) {
-                                ?>
-                                <td>
-                                    <?php
+                                    $laVille = $liste_villes->getVille($i, $j);
 
-                                    if ($this->villes->existe($i, $j)) {
-
-                                        $laVille = $this->villes->getVille($i, $j);
-                                        $src_image = "../ressources/Image/numero" . $laVille->getNombrePontsMax() . ".png";
-                                        //vérification de la séléction :
-                                        if ($laVille->getID() == $idville || $laVille->getID() == $_GET["ville2"]) {
+                                    $src_image = "../ressources/Image/numero" . $laVille->getNombrePontsMax() . ".png";
+                                    //vérification de la séléction :
+                                    if ($laVille->getID() == $_GET['ville1'] || $laVille->getID() == $_GET["ville2"]) {
 
 
-                                            $ville_modif = $this->villes->getVille($i, $j);
+                                        if ($this->villes->liaisonPossible($_GET['ville1'], $_GET['ville2'])) {
+                                            $src_image = "../ressources/Image/vert/vnumero" . $laVille->getNombrePontsMax() . ".png";
 
-                                            if ($this->villes->liaisonPossible($idville, $_GET['ville2'])) {
-                                                $src_image = "../ressources/Image/vert/vnumero" . $ville_modif->getNombrePontsMax() . ".png";
+                                        } else {
+                                            $src_image = "../ressources/Image/rouge/rnumero" . $laVille->getNombrePontsMax() . ".png";
 
-                                            } else {
-                                                $src_image = "../ressources/Image/rouge/rnumero" . $ville_modif->getNombrePontsMax() . ".png";
-
-                                            }
                                         }
+                                    }
 
 
-                                        $ville_id = $laVille->getId();
+                                    $ville_id = $laVille->getId();
 
-                                        #echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville=".$ville_id."&ville2=".$_GET[ville]."><img src=\"".$src_image."\" width='50'></a>";
+                                    #echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville=".$ville_id."&ville2=".$_GET[ville]."><img src=\"".$src_image."\" width='50'></a>";
 
-                                        echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville=" . $idville . "&ville2=" . $ville_id . "><img src=\"" . $src_image . "\"></a>";
-
-
-                                    } else {
+                                    echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville1=" . $_GET['ville1'] . "&ville2=" . $ville_id . "><img src=\"" . $src_image . "\"></a>";
 
 
-                                        if ($this->villes->liaisonPossible($idville, $_GET['ville2'])) {
+                                } else {
 
 
-                                            $test_x = array($this->villes->getVillePosX($_GET['ville2']), $this->villes->getVillePosX($idville));
-                                            $test_y = array($this->villes->getVillePosY($_GET['ville2']), $this->villes->getVillePosY($idville));
+                                    if ($this->villes->liaisonPossible($_GET['ville1'], $_GET['ville2'])) {
 
 
-                                            if (($this->villes->getVillePosY($idville) == $this->villes->getVillePosY($_GET['ville2'])) && ($j == $this->villes->getVillePosY($idville)) && ($i < max($test_x)) && ($i > min($test_x))) {
+                                        $test_x = array($this->villes->getVillePosX($_GET['ville2']), $this->villes->getVillePosX($_GET['ville1']));
+                                        $test_y = array($this->villes->getVillePosY($_GET['ville2']), $this->villes->getVillePosY($_GET['ville1']));
 
-                                                $src_image = "../ressources/Image/Barres/BarreSimpleVerticale.png";
-                                                echo "<img src=\"" . $src_image . "\">";
 
-                                            }
-                                            if (($this->villes->getVillePosX($idville) == $this->villes->getVillePosX($_GET['ville2'])) && ($i == $this->villes->getVillePosX($idville)) && ($j < max($test_y)) && ($j > min($test_y))) {
+                                        if (($this->villes->getVillePosY($_GET['ville1']) == $this->villes->getVillePosY($_GET['ville2'])) && ($j == $this->villes->getVillePosY($_GET['ville1'])) && ($i < max($test_x)) && ($i > min($test_x))) {
 
-                                                $src_image = "../ressources/Image/Barres/BarreSimpleHorizontale.png";
-                                                echo "<img src=\"" . $src_image . "\">";
+                                            $src_image = "../ressources/Image/Barres/BarreSimpleVerticale.png";
+                                            echo "<img src=\"" . $src_image . "\">";
 
-                                            }
+                                        }
+                                        if (($this->villes->getVillePosX($_GET['ville1']) == $this->villes->getVillePosX($_GET['ville2'])) && ($i == $this->villes->getVillePosX($_GET['ville1'])) && ($j < max($test_y)) && ($j > min($test_y))) {
 
+                                            $src_image = "../ressources/Image/Barres/BarreSimpleHorizontale.png";
+                                            echo "<img src=\"" . $src_image . "\">";
 
                                         }
 
-                                        echo "   ";
 
                                     }
-                                    ?></td>
-                                <?php
-                            }
-                            ?>  </tr>
-                        <?php
-                    }
+
+                                    echo "   ";
+
+                                }
+                                ?></td>
+                            <?php
+                        }
+                        ?>  </tr>
+                    <?php
                 }
             }
+
             ?>
         </table>
         <!-- bonjour je fais un test | SALUT BUGO | Yo Monsieur REZOO hhh-->
@@ -132,7 +129,7 @@ class VueJeuChanger
 <?php
 
 
-        echo $idville ." - ";
+        echo $_GET['ville1'] ." - ";
         echo $_GET['ville2'];
     }
 

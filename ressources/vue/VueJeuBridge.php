@@ -11,9 +11,9 @@ class VueJeuBridge
 {
 
     public $villes;
-    public function afficher_jeu(){
+    public function afficher_jeu($listes_villes){
 
-        $this->villes = new Villes();
+
         ?>
 
             <!doctype html>
@@ -42,9 +42,9 @@ class VueJeuBridge
 
                        echo "<td>";
 
-                       if ($this->villes->existe($i,$j)) {
+                       if ($listes_villes->existe($i,$j)) {
 
-                           $laVille = $this->villes->getVille($i, $j);
+                           $laVille = $listes_villes->getVille($i, $j);
                            $src_image = "../ressources/Image/numero" . $laVille->getNombrePontsMax() . ".png";
 
                            $ville_id = $laVille->getId();
@@ -63,12 +63,13 @@ class VueJeuBridge
                }
                 ?>
             </table>
-            <!-- bonjour je fais un test | SALUT BUGO | Qu'as tu changé ici ? -->
+
 
             </form>
 
             <br>  <br>
 
+            <a href='index.php?etat=recommencer'><button id="bouton"> Recommencer </button></a>
             <a href='index.php?etat=deconnexion'><button id="bouton"> Quitter </button></a>
 
             </body>

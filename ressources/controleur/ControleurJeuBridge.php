@@ -47,11 +47,11 @@ class ControleurJeuBridge
     public function afficher_bridge(){
 
         if(!isset($SESSION['listes_villes']) or $_SESSION['listes_villes'] == null) {
-            $this->TheVue = $this->vuejeu->afficher_jeu();
+
             $villes = new Villes();
             $_SESSION['listes_villes'] = $villes;
+            $this->TheVue = $this->vuejeu->afficher_jeu($_SESSION['listes_villes']);
 
-            $this->TheVue = $this->vuejeu->afficher_jeu();
         }else{
             echo"Variable session => ";
             var_dump($_SESSION['listes_villes']);
