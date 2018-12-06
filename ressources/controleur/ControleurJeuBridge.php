@@ -89,13 +89,6 @@ class ControleurJeuBridge
 
 
             }
-            else
-            {
-
-                $this->TheVue = $this->afficher_bridge();
-
-
-            }
         }
 
         return $couleur_mise;
