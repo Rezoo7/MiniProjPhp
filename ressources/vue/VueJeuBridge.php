@@ -69,9 +69,10 @@ class VueJeuBridge
 
             <br>  <br>
 
-            <a href='index.php?etat=recommencer'><button id="bouton"> Recommencer </button></a>
-            <a href='index.php?etat=deconnexion'><button id="bouton"> Quitter </button></a>
-
+            <div id="lesboutons">
+                <a href='index.php?etat=recommencer'><button id="bouton"> Recommencer </button></a>
+                <a href='index.php?etat=deconnexion'><button id="bouton"> Quitter </button></a>
+            </div>
             </body>
             </html>
 
