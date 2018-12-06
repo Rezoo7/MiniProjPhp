@@ -123,7 +123,7 @@ class VueJeuChanger
 
         <br>  <br>
 
-        <button id="bouton"><a href='index.php?etat=deconnexion'> Quitter </a></button>
+        <a href='index.php?etat=deconnexion'><button id="bouton"> Quitter </button></a>
 
         </body>
         </html>

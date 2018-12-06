@@ -21,6 +21,13 @@ class Partie
     }
 
 
+    public function isWin(){
+
+
+
+    }
+
+
 
 
 
