@@ -48,19 +48,18 @@ class VueJeuChanger
 
                                     $laVille = $liste_villes->getVille($i, $j);
 
-                                    if(isset($_GET['ville2']))
-                                    {
+
                                     //vérification de la séléction :
-                                    if ($laVille->getID() == $_GET['ville1'] || $laVille->getID() == $_GET["ville2"]) {
-
-                                        $src_image = "../ressources/Image/vert/vnumero" . $laVille->getNombrePontsMax() . ".png";
-                                        if (($liste_villes->liaisonPossible($_GET['ville1'], $_GET['ville2']))) {
-                                            $src_image = "../ressources/Image/vert/vnumero" . $laVille->getNombrePontsMax() . ".png";
-                                        }
-                                        }
-                                    }
-
                                     $src_image = "../ressources/Image/numero" . $laVille->getNombrePontsMax() . ".png";
+                                    if ($laVille->getID() == $_GET['ville1'] || $laVille->getID() == $_GET["ville2"]) {
+                                        $src_image = "../ressources/Image/vert/vnumero" . $laVille->getNombrePontsMax() . ".png";
+                                        if (!($liste_villes->liaisonPossible($_GET['ville1'], $_GET['ville2']))) {
+                                            $src_image = "../ressources/Image/rouge/rnumero" . $laVille->getNombrePontsMax() . ".png";
+                                        }
+                                        }
+
+
+
 
 
 
