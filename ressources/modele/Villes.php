@@ -95,8 +95,13 @@ function existe($i,$j){
 return isset($this->villes[$i][$j]);
 }
 
-//Retourne vrai s'il y a liaison possible entre deux villes.
-function liaisonPossible($ville1, $ville2)
+
+    /** Méthode qui va permettre de déterminer si deux villes sont liables.
+     * @param ville1 est l'ID de la première ville
+     * @param ville2 est l'ID de la deuxième ville
+     * @return bool si oui ou non les deux villes sont liables.
+     */
+    function liaisonPossible($ville1, $ville2)
 {
 
     //On récupère toutes les coordonnées X,Y des deux villes.

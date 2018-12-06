@@ -82,22 +82,8 @@ class ControleurJeuBridge
 
             if($this->lesV->liaisonPossible($id_ville, $_GET['ville2']))
             {
-                            #$this->lesV->getVilleID($id_ville)->lierVilles($ville2);
                             $couleur_mise = true;
-
-
-                            echo "Ville 1 : " . $id_ville;
-                            echo $this->lesV->getVilleID($id_ville)->getID();
-                            if($this->lesV->getVilleID($id_ville)->lierVilles($ville2))
-                            {
-                                echo "yess";
-                                echo "Ville 1 : " . $id_ville;
-                            }
-                            else
-                            { echo "no";}
-                            echo "Ville 1 : " . $id_ville;
-                            echo "Nombre de ponts sur " . $id_ville. " : " . $this->lesV->getVilleID($id_ville)->getNombrePonts();
-
+                            $this->lesV->getVilleID($id_ville)->lierVilles($ville2);
                             $array[] = ($this->lesV->getVilleID($id_ville)->getLiaison());
                             foreach($array as $ar)
                                 echo var_dump($ar);
