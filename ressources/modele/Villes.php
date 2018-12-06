@@ -33,17 +33,13 @@ function getVilleID($id){
     {
         for ($j=0; $j<7; $j++)
         {
-            if($this->villes[$i][$j]->getId()==$id)
+            if(isset($this->villes[$i][$j]) && $this->villes[$i][$j]->getId()==$id)
             {
                 return $this->villes[$i][$j];
             }
-            else
-            {
-
-                return null;
-            }
         }
     }
+    return null;
     }
 
     function getVillePosX($id)
