@@ -79,6 +79,38 @@ function getVilleID($id){
         }
 
 
+    /**
+     * Compare les coordonnées X de de villes en paramètres
+     * Entrées par leurs ID !
+     *
+     * @param $id1
+     * @param $id2
+     * @return bool
+     */
+
+        function comparer_X($id1,$id2){
+            if($this->getVillePosX($id1)== $this->getVillePosX($id2)){
+                return true;
+            }
+            return false;
+        }
+
+    /**
+     * Compare les coordonnées Y de de villes en paramètres
+     * Entrées par leurs ID !
+     *
+     * @param $id1
+     * @param $id2
+     * @return bool
+     */
+
+    function comparer_Y($id1,$id2){
+        if($this->getVillePosY($id1)== $this->getVillePosY($id2)){
+            return true;
+        }
+        return false;
+    }
+
 
 // modifieur qui value le nombre de ponts de la ville en position $i et $j;
 // précondition: la ville en position $i et $j existe
