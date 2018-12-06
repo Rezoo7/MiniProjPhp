@@ -39,6 +39,7 @@ function getVilleID($id){
             }
             else
             {
+
                 return null;
             }
         }

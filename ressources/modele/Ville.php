@@ -16,7 +16,7 @@ class Ville{
     $this->id=$id;
     $this->nombrePontsMax=$nombrePontsMax;
     $this->nombrePonts=$nombrePonts;
-    $this->villesLiees=null;
+    $this->villesLiees=array();
 
     }
 
@@ -48,16 +48,21 @@ class Ville{
     $this->nombrePonts=$nb;
     }
 
+    //incrémentaeur du nombre de ponts.
+    function addPont(){
+        $this->nombrePonts++;
+    }
+
+
     //il faut ici implémenter les méthodes qui permettent de lier des villes entre elles, ...
 
     function lierVilles($ville){
 
-        if($this->nombrePonts < $this->getNombrePontsMax()){
-            if($this->villesLiees == null){
+        if($this->nombrePonts <= $this->getNombrePontsMax()){
 
-                $this->villesLiees= array();
-            }
-            $this->villesLiees[] = $ville;
+            $this->villesLiees[$this->nombrePonts] = $ville;
+            $this->addPont();
+            return true;
         }
         else{
 
