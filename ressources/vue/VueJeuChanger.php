@@ -6,12 +6,10 @@
  * Time: 18:51
  */
 
-require_once PATH_MODELE."/Villes.php";
 
 class VueJeuChanger
 {
 
-    private $villes;
 
     /**
      * @param $liste_villes tableau de villes passe en parametres

@@ -10,7 +10,8 @@
 class VueJeuBridge
 {
 
-    public $villes;
+
+
     public function afficher_jeu($listes_villes){
 
 
