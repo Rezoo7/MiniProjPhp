@@ -84,7 +84,7 @@ class Routeur{
           $this->ctrlAthentification->accueil();
 
 
-      } elseif(!isset($_GET['ville'])){
+      } elseif(!isset($_GET['ville1'])){
 
           $this->ctrlJeu->afficher_bridge();
           $this->ctrlJeu->vue_actuelle();

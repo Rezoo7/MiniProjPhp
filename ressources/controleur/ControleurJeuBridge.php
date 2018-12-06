@@ -65,9 +65,8 @@ class ControleurJeuBridge
         $couleur_mise = false;
 
         $this->TheVue = $this->vue_chan->changer($_SESSION['listes_villes']);
+
         //TODO a revoir cette ligne
-
-
 
         $x1=$this->lesV->getVillePosX($id_ville);
         $y1=$this->lesV->getVillePosY($id_ville);
