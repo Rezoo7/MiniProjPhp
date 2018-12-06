@@ -48,7 +48,7 @@ class VueJeuBridge
                            $src_image = "../ressources/Image/numero" . $laVille->getNombrePontsMax() . ".png";
 
                            $ville_id = $laVille->getId();
-                           echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville=".$ville_id."&ville2=-1><img src=\"".$src_image."\" width='50'></a>";
+                           echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville1=".$ville_id."&ville2=-1><img src=\"".$src_image."\" width='50'></a>";
                        }
                        else
                        {

@@ -60,11 +60,13 @@ class ControleurJeuBridge
     }
 
 
-    public function couleur_ville($id_ville){
+    public function couleur_ville($liste_villes){
 
         $couleur_mise = false;
 
-        $this->TheVue = $this->vue_chan->changer($id_ville);
+        $this->TheVue = $this->vue_chan->changer($_SESSION['listes_villes']);
+
+        $id_ville = $liste_villes->getId();
 
         $x1=$this->lesV->getVillePosX($id_ville);
         $y1=$this->lesV->getVillePosY($id_ville);
@@ -80,7 +82,7 @@ class ControleurJeuBridge
 
             echo "<br/>coordonnées de ".$ville2. " :  ". $x2 . "; " . $y2 ."<br/>";
 
-            if($this->lesV->liaisonPossible($id_ville, $_GET['ville2']))
+            if($this->lesV->liaisonPossible($_GET['ville1'], $_GET['ville2']))
             {
                             $couleur_mise = true;
                             $this->lesV->getVilleID($id_ville)->lierVilles($ville2);

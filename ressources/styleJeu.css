@@ -24,7 +24,7 @@ button {
     border-radius:50%;
     color:#555;
 
-    display: block;
+    display: inline-table;
     margin: auto;
 }
 
