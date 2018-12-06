@@ -77,6 +77,12 @@ class ControleurJeuBridge
 
         }
 
+        if (!isset($_SESSION['liaison']) && !isset($_SESSION['nbrLiaison']))
+        {
+            $_SESSION['liaison'] = array();
+            $_SESSION['nbrLiaison']= 0;
+        }
+
             $couleur_mise = false;
 
             $this->TheVue = $this->vue_chan->changer($_SESSION['listes_villes']);
@@ -93,11 +99,13 @@ class ControleurJeuBridge
                 $y2 = $this->lesV->getVillePosY($ville2);
 
 
-                if ($this->lesV->getVilleID($id_ville)->lierVilles($ville2))  // Si liaison possible enregistrer dans deux variables de sessions => deux id de villes
+                if ($this->lesV->liaisonPossible($id_ville, $ville2) && $this->lesV->getVilleID($id_ville)->lierVilles($ville2))  // Si liaison possible enregistrer dans deux variables de sessions => deux id de villes
+                {
+                    $_SESSION['liaison'][$_SESSION['nbrLiaison']]= array($id_ville, $ville2);
+                    $_SESSION['nbrLiaison']++;
+                    var_dump($_SESSION['liaison']);
                     $couleur_mise = true;
-
-
-
+                }
 
             }
 

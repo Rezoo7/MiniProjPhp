@@ -34,6 +34,8 @@ class Routeur{
                   unset($_SESSION['listes_villes']);
                   unset($_SESSION['ville1']);
                   unset($_SESSION['ville2']);
+                  unset($_SESSION['liaison']);
+                  unset($_SESSION['nbrLiaison']);
                   session_destroy();
                   break;
 
@@ -41,7 +43,8 @@ class Routeur{
                   unset($_SESSION['listes_villes']);
                   unset($_SESSION['ville1']);
                   unset($_SESSION['ville2']);
-
+                  unset($_SESSION['liaison']);
+                  unset($_SESSION['nbrLiaison']);
 
               default:
                   break;
