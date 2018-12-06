@@ -22,7 +22,7 @@ class VueJeuChanger
         ?>
 
         <!doctype html>
-        <html style="background-color: #c2ceff">
+        <html style="background-color: aliceblue">
         <head>
             <meta charset="UTF-8">
             <link rel="stylesheet" href="styleJeu.css">
