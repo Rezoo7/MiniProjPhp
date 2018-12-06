@@ -80,7 +80,7 @@ class ControleurJeuBridge
 
                         if( !($this->lesV->existe($i,$j) && ((($i > $x1) && ($i < $x2)) || (($j > $y1) && ($j < $y2))))  ){
 */
-                            $this->lesV->getVilleID($id_ville)->lierVilles($ville2);
+                            #$this->lesV->getVilleID($id_ville)->lierVilles($ville2);
                             $couleur_mise = true;
                             echo "YESS";
 

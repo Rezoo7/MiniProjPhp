@@ -101,6 +101,8 @@ return isset($this->villes[$i][$j]);
 
 function liaisonPossible($ville1, $ville2)
 {
+
+
     $vPosition_x1= $this->getVillePosX($ville1);
     $vPosition_x2= $this->getVillePosX($ville2);
     $vPosition_y1= $this->getVillePosY($ville1);
@@ -114,10 +116,17 @@ function liaisonPossible($ville1, $ville2)
 
         if($vPosition_x1==$vPosition_x2)
         {
-
-            for ($i=0; $i<7; $i++)
+            if($vPosition_y1<$vPosition_y2)
             {
-                    if($i!=$vPosition_y1 && $i!=$vPosition_y2 && $this->existe($vPosition_x2,$i))
+                $tmp = $vPosition_y1;
+                $vPosition_y1=$vPosition_y2;
+                $vPosition_y2=$tmp;
+            }
+
+            for ($i=$vPosition_y2+1; $i<$vPosition_x1; $i++)
+            {
+
+                    if($this->existe($vPosition_x2,$i))
                     {
 
                         return false;
@@ -129,10 +138,19 @@ function liaisonPossible($ville1, $ville2)
         if ($vPosition_y1==$vPosition_y2)
             {
 
-                for ($i=0; $i<7; $i++)
+                if($vPosition_x1<$vPosition_x2)
+                {
+                    $tmp = $vPosition_x1;
+                    $vPosition_x1=$vPosition_x2;
+                    $vPosition_x2=$tmp;
+
+
+                }
+
+                for ($i=$vPosition_x2+1; $i<$vPosition_x1; $i++)
                 {
 
-                    if($i!=$vPosition_x1 && $i!=$vPosition_x2 && $this->existe($i, $vPosition_y2) && $i<6)
+                    if($this->existe($i, $vPosition_y2))
                     {
                         return false;
                     }
