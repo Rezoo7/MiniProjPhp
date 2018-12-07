@@ -12,21 +12,22 @@
 
 #bouton{
 
-    width:85px;
+    width:100px;
     height:100px;
     background:#fafafa;
     box-shadow:2px 2px 8px #aaa;
     font:bold 10px Arial;
     border-radius:50%;
     color:#555;
-    margin: auto;
+
+    text-transform: uppercase;
 
 }
 
 button#bouton{
 
     margin-left: 300px;
-    text-transform: capitalize;
+
 }
 
 
