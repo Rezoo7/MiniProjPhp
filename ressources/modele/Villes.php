@@ -144,7 +144,7 @@ return isset($this->villes[$i][$j]);
     $vPosition_y2= $this->getVillePosY($ville2);
 
     //Cas erreur qui renvois FAUX si les deux villes ont des coordonnées totalement différentes ou totalement égale.
-    if($vPosition_x1!=$vPosition_x2 && $vPosition_y1!=$vPosition_y2 || $vPosition_x1==$vPosition_x2 && $vPosition_y1==$vPosition_y2)
+    if($vPosition_x1!=$vPosition_x2 && $vPosition_y1!=$vPosition_y2 || $vPosition_x1==$vPosition_x2 && $vPosition_y1==$vPosition_y2 || $this->getVilleID($ville2)->getNombrePontsMax()<= $this->getVilleID($ville2)->getNombrePonts() || $this->getVilleID($ville1)->getNombrePontsMax()<= $this->getVilleID($ville1)->getNombrePonts() )
         return false;
     else //Cas d'alignement entre deux villes
     {
