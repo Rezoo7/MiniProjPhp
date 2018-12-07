@@ -46,6 +46,9 @@ class Routeur{
                   unset($_SESSION['liaison']);
                   unset($_SESSION['nbrLiaison']);
 
+              case 'stats':
+                  $this->ctrlJeu->afficher_Stats();
+
               default:
                   break;
           }
@@ -54,7 +57,7 @@ class Routeur{
 
      if(isset($_GET['ville1'])) {
 
-         for($i =0;$i<=9;$i++){
+         for($i =0;$i<=7;$i++){
 
              if($_GET['ville1'] == $i){
 

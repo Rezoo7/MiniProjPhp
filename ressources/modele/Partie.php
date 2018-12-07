@@ -24,6 +24,17 @@ class Partie
         $this->lesV = new Villes();
 
 
+        try{
+            $chaine="mysql:host=localhost;dbname=projet";
+            $this->connexion = new PDO($chaine,"root","");
+            $this->connexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        }
+        catch(PDOException $e){
+            $exception=new ConnexionException("problème de connection à la base");
+            throw $exception;
+        }
+
+
     }
 
     /**
@@ -110,7 +121,9 @@ class Partie
      * Fonction qui permet d'obtenir le classement du jeu grâce à la base de donnée
      * @return classement des meilleurs joueurs
      */
+
     public function meilleurs_Joueurs(){
+
 
         $statement = $this->connexion->query("SELECT pseudo, COUNT(partieGagnee) p FROM parties WHERE partieGagnee =1 GROUP BY pseudo ORDER BY p DESC LIMIT 3 ");
         $statement->execute();
@@ -119,6 +132,17 @@ class Partie
         return $classement;
 
 
+    }
+
+    public function nbr_gagnees($pseudo){
+
+        $statement = $this->connexion->prepare("SELECT COUNT(partieGagnee) FROM parties WHERE partieGagnee =1 AND  pseudo=? GROUP BY pseudo");
+        $statement->bindParam(1,$pseudo);
+        $statement->execute();
+        $nombre = $statement->fetchAll();
+
+        $victoires = $nombre[0][0];
+        return $victoires;
     }
 
 

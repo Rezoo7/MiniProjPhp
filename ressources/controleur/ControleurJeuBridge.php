@@ -173,8 +173,21 @@ class ControleurJeuBridge
         var_dump($_SESSION['liaison']);
     }
 
+    public function afficher_Stats(){
+
+        $classement = $this->partie_mod->meilleurs_Joueurs();
+
+        echo "<h4> Classement des Joueurs : </h4>";
+
+        foreach ($classement as $row) {
+
+            $ligne = "<p style='text-align: center'>pseudo = ".$row["pseudo"]."   Nombre de Victoires: ".$this->partie_mod->nbr_gagnees($row["pseudo"])."</p>";
+
+            echo $ligne;
+        }
 
 
+    }
 
 
 }
