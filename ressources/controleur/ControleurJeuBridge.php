@@ -129,22 +129,19 @@ class ControleurJeuBridge
         if(!empty($_SESSION['liaison'])) {
             $exist=false;
             $nbr=0;
-            $depasserNombre = false;
+
             $nbrDefinitif=-1;
             foreach ($_SESSION['liaison'] as $association) {
-
+                $depasserNombre = false;
                 $v1 = $association[0];
                 $v2 = $association[1];
                 $nombre = $association[2];
 
-                if($nombre>2)
-                    $_SESSION['liaison'][$nbr][2]<=2;
-
-                if ((($v1 == $id_ville && $v2 == $ville2) || ($v2 == $id_ville && $v1 == $ville2)) && $nombre <= 2) {
+                if ((($v1 == $id_ville && $v2 == $ville2) || ($v2 == $id_ville && $v1 == $ville2))) {
                     $exist=true;
                     $nbrDefinitif=$nbr;
                 }
-                if($nombre>2)
+                if($nombre>=2)
                 {
                     $depasserNombre=true;
                 }
@@ -155,11 +152,13 @@ class ControleurJeuBridge
             {
                 #var_dump($_SESSION['liaison'][$nbrDefinitif]);
                 $_SESSION['liaison'][$nbrDefinitif][2]++;
+                echo "AJOUT S'IL EXSITE MAIS LE NOMBRE N'EST PAS DEPASSE";
             }
             else if(!$exist)
             {
                 $_SESSION['liaison'][$_SESSION['nbrLiaison']] = array($id_ville, $ville2, 1);
                 $_SESSION['nbrLiaison']++;
+                echo 'AJOUT SIL NEXSITE PAS';
             }
 
         }
@@ -167,6 +166,8 @@ class ControleurJeuBridge
         {
             $_SESSION['liaison'][$_SESSION['nbrLiaison']] = array($id_ville, $ville2, 1);
             $_SESSION['nbrLiaison']++;
+
+            echo "AJOUT SI VIDE";
         }
 
 
