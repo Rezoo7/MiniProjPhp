@@ -49,24 +49,34 @@ class VueJeuChanger
                                     $laVille = $liste_villes->getVille($i, $j);
 
 
-                                    //vérification de la séléction :
+                                    //vérification de la séléction : (images des ponts)
                                     $src_image = "../ressources/Image/numero" . $laVille->getNombrePontsMax() . ".png";
+
                                     if ($laVille->getID() == $_GET['ville1'] || $laVille->getID() == $_GET["ville2"]) {
                                         $src_image = "../ressources/Image/vert/vnumero" . $laVille->getNombrePontsMax() . ".png";
-                                        if (!($liste_villes->liaisonPossible($_GET['ville1'], $_GET['ville2']))) {
+
+
+                                        if (!($liste_villes->liaisonPossible($_GET['ville1'], $_GET['ville2'])) && $_GET['ville2'] > -1) {
                                             $src_image = "../ressources/Image/rouge/rnumero" . $laVille->getNombrePontsMax() . ".png";
                                         }
-                                        }
+
+                                    }
 
 
                                     $ville_id = $laVille->getId();
 
                                     #echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville1=".$ville_id."&ville2=".$_GET[ville]."><img src=\"".$src_image."\" width='50'></a>";
 
-                                    echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville1=" . $ville_id . "&ville2=" . $_GET['ville1'] . "><img src=\"" . $src_image . "\"></a>";
+                                    echo "<a href= http://localhost/miniproj/ressources/index.php?ville1=" . $ville_id . "&ville2=" . $_GET['ville1'] . "><img src=\"" . $src_image . "\"></a>";
 
+                                    //TODO PONT AFFICHER AU MOMENT DU CLIQUE DEUXIEME VILLE
+                                    // TODO AFFICHER DOUBLE PONTS
+                                    // TODO GERER LE FAIT QUIL Y AI PLUS DE DEUX PONTS
+                                    // TODO AFFICHER VICTOIRE OU DEFAITE
 
-                                } else {
+                                }
+
+                                if($_GET['ville1'] >-1 && $_GET['ville2']){
 
                                     foreach($_SESSION['liaison'] as $idvilles) {
                                         $idville1 = $idvilles[0];
