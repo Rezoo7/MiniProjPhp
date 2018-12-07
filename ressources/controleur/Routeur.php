@@ -25,6 +25,7 @@ class Routeur{
   public function routeurRequête()
   {
 
+
       if (isset($_GET['etat'])) {
 
           switch ($_GET['etat']) {
