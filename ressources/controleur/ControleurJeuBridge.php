@@ -103,7 +103,6 @@ class ControleurJeuBridge
                 {
                     $this->lierlesVIlles($id_ville, $ville2);
 
-
                     $couleur_mise = true;
                 }
 
@@ -129,19 +128,23 @@ class ControleurJeuBridge
 
         if(!empty($_SESSION['liaison'])) {
             $exist=false;
-            $depasserNombre = false;
             $nbr=0;
-            $nbrDefinitif=0;
+            $depasserNombre = false;
+            $nbrDefinitif=-1;
             foreach ($_SESSION['liaison'] as $association) {
+
                 $v1 = $association[0];
                 $v2 = $association[1];
                 $nombre = $association[2];
 
-                if (($v1 == $id_ville && $v2 == $ville2 || $v2 == $id_ville && $v1 == $ville2) && $nombre < 2) {
+                if($nombre>2)
+                    $_SESSION['liaison'][$nbr][2]<=2;
+
+                if ((($v1 == $id_ville && $v2 == $ville2) || ($v2 == $id_ville && $v1 == $ville2)) && $nombre <= 2) {
                     $exist=true;
                     $nbrDefinitif=$nbr;
                 }
-                if($nombre>=2)
+                if($nombre>2)
                 {
                     $depasserNombre=true;
                 }
@@ -152,9 +155,6 @@ class ControleurJeuBridge
             {
                 #var_dump($_SESSION['liaison'][$nbrDefinitif]);
                 $_SESSION['liaison'][$nbrDefinitif][2]++;
-            }
-            else if($depasserNombre) {
-                echo "<br/>I WILL BUILD A WALL";
             }
             else if(!$exist)
             {
