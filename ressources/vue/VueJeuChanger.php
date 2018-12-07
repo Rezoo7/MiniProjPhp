@@ -76,24 +76,30 @@ class VueJeuChanger
 
                                 }
 
-                                if($_GET['ville1'] >-1 && $_GET['ville2']){
+
 
                                     foreach($_SESSION['liaison'] as $idvilles) {
                                         $idville1 = $idvilles[0];
                                         $idville2 = $idvilles[1];
+                                        $nombreLiaisons = $idvilles[2];
 
                                         $test_x = array($liste_villes->getVillePosX($idville2), $liste_villes->getVillePosX($idville1));
                                         $test_y = array($liste_villes->getVillePosY($idville2), $liste_villes->getVillePosY($idville1));
 
                                         if (($liste_villes->comparer_Y($idville1, $idville2)) && ($j == $liste_villes->getVillePosY($idville1)) && ($i < max($test_x)) && ($i > min($test_x))) {
 
-                                            $src_image = "../ressources/Image/Barres/BarreSimpleVerticale.png";
+                                            if ($nombreLiaisons==1)
+                                                $src_image = "../ressources/Image/Barres/BarreSimpleVerticale.png";
+                                            else
+                                                $src_image = "../ressources/Image/Barres/BarreDoubleVerticale.png";
                                             echo "<img src=\"" . $src_image . "\">";
 
                                         }
                                         if (($liste_villes->comparer_X($idville1, $idville2)) && ($i == $liste_villes->getVillePosX($idville1)) && ($j < max($test_y)) && ($j > min($test_y))) {
-
-                                            $src_image = "../ressources/Image/Barres/BarreSimpleHorizontale.png";
+                                            if ($nombreLiaisons==1)
+                                                $src_image = "../ressources/Image/Barres/BarreSimpleHorizontale.png";
+                                            else
+                                                $src_image = "../ressources/Image/Barres/BarreDoubleHorizontale.png";
                                             echo "<img src=\"" . $src_image . "\">";
 
                                         }
@@ -101,7 +107,7 @@ class VueJeuChanger
 
 
                                     echo "   ";
-                                }
+
                                 echo "</td>";
                         }
                           echo"</tr>";
