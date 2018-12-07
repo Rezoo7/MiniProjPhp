@@ -63,6 +63,23 @@ class VueJeuBridge
                    echo "</tr>";
 
                }
+
+//TODO Refaire test si une ville a plus de ponts que son maximum
+
+        for ( $i=0; $i <=6; $i ++ ) {
+            for ($j = 0; $j <= 6; $j++) {
+
+                if($liste_villes->existe($i,$j)) {
+                    if (($liste_villes->getVille($i, $j)->getNombrePonts()) >($liste_villes->getVille($i, $j)->getNombrePontsMax())) {
+
+                        echo "Vous Avez Perdu !";
+                    }
+                    else{
+                        "Choisissez deux autres ponts";
+                    }
+                }
+            }
+        }
                 ?>
             </table>
 
