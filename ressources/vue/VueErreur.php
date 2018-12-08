@@ -21,11 +21,13 @@ class VueErreur
         <!DOCTYPE html>
         <html>
         <head>
+            <meta charset="UTF-8">
             <title>  Erreur </title>
+            <link rel="stylesheet" href="styleAuth.css">
         </head>
         <body>
 
-        <?php  echo $msg ?>
+        <?php  echo "<h2>".$msg."</h2>" ?>
 
         </body>
         </html>

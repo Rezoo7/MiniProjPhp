@@ -93,16 +93,21 @@ class ControleurJeuBridge
                 $_SESSION['liaison'] = array();
                 $_SESSION['nbrLiaison'] = 0;
             }
+
             $couleur_mise = false;
             $this->TheVue = $this->vue_chan->changer($_SESSION['listes_villes']);
             $x1 = $this->lesV->getVillePosX($id_ville);
             $y1 = $this->lesV->getVillePosY($id_ville);
+
             //echo "<br/> coordonnées de " . $id_ville . " :  " . $x1 . ", " . $y1;
+
             if ($_GET['ville2'] > -1) {
                 $ville2 = $_GET['ville2'];
                 $x2 = $this->lesV->getVillePosX($ville2);
                 $y2 = $this->lesV->getVillePosY($ville2);
+
                 if ($this->lesV->liaisonPossible($id_ville, $ville2) && $this->lesV->getVilleID($id_ville)->lierVilles($ville2)) {
+
                     $this->lierlesVilles($id_ville, $ville2);
 
                     $couleur_mise = true;

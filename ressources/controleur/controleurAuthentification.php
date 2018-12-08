@@ -41,13 +41,12 @@ function authentifier($pseudo, $motdepasse){
   }
   else {
 
-      echo "NON";
       if ($this->modele->connection_ok($pseudo, $motdepasse) == -1) {
           $this->vueerreur->afficher_erreur("Connection Echouée : Votre Pseudo est Invalide !)");
       }
       elseif($this->modele->connection_ok($pseudo, $motdepasse) == -2){
 
-          $this->vueerreur->afficher_erreur("Conncetion Echouée : Votre Mot de Passe est Invalide !");
+          $this->vueerreur->afficher_erreur("Connection Echouée : Votre Mot de Passe est Invalide !");
       }
   }
 
