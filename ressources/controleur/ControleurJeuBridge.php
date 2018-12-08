@@ -68,7 +68,7 @@ class ControleurJeuBridge
             $this->partie_mod->win($_SESSION['pseudo']);
             $this->vuejeu->header();
             $this->vuejeu->perdu();
-            $this->vuejeu->bouttons();
+            $this->vuejeu->bouttonsFinDeGame();
             $this->afficher_Stats();
         }
 
@@ -77,7 +77,7 @@ class ControleurJeuBridge
             $this->partie_mod->lose($_SESSION['pseudo']);
             $this->vuejeu->header();
             $this->vuejeu->gagner();
-            $this->vuejeu->bouttons();
+            $this->vuejeu->bouttonsFinDeGame();
             $this->afficher_Stats();
         }
 
@@ -182,14 +182,13 @@ class ControleurJeuBridge
             $_SESSION['listes_villes']->getVilleID($ville2)->addPont();
 
         }
-        var_dump($_SESSION['liaison']);
+        #var_dump($_SESSION['liaison']);
 }
 
 
 
     public function afficher_Stats()
     {
-
 
         $classement = $this->partie_mod->meilleurs_Joueurs();
 

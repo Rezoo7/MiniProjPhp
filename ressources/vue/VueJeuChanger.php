@@ -47,7 +47,7 @@ class VueJeuChanger
                                 if ($liste_villes->existe($i, $j)) {
 
                                     $laVille = $liste_villes->getVille($i, $j);
-                                    echo "PONTS : ".$laVille->getNombrePonts();
+                                    #echo "PONTS : ".$laVille->getNombrePonts();
 
                                     //vérification de la séléction : (images des ponts)
                                     $src_image = "../ressources/Image/numero" . $laVille->getNombrePontsMax() . ".png";

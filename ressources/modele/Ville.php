@@ -64,7 +64,7 @@ class Ville{
             //NombrePonts sert ici de clé pour atteindre la ville
             $this->addPont(); //On incrémente pont.
 
-            echo "Nombre de pont de " . $ville . " -> " . $this->nombrePonts;
+            #echo "Nombre de pont de " . $ville . " -> " . $this->nombrePonts;
             return true; //On retourne vrai si l'action à été faite.
         }
         else{

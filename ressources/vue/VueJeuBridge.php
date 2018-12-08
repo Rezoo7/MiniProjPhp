@@ -86,7 +86,7 @@ class VueJeuBridge
             <br>  <br>
 
             ?><?php
-            $this->bouttons();
+            $this->bouttonsEnJeu();
 
               ?>
             </body>
@@ -97,7 +97,7 @@ class VueJeuBridge
 
     }
 
-    public function bouttons()
+    public function bouttonsEnJeu()
     {
         ?>
 
@@ -107,6 +107,12 @@ class VueJeuBridge
 
         <?php
     }
+    public function bouttonsFinDeGame()
+    {
+        ?><a href='index.php?etat=recommencer'><button id="bouton"> Recommencer </button></a>
+        <a href='index.php?etat=deconnexion'><button id="bouton"> Quitter </button></a>
+        <?php
+        }
     public function header()
     {
        ?> <!doctype html>
