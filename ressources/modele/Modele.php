@@ -58,7 +58,7 @@ class Modele
             $password->execute();
 
             $resultats = $password->fetchAll();
-            $password->closeCursor();
+            $password->closeCursor();;
 
             if($resultats[0][0] != $mdp) {
 
