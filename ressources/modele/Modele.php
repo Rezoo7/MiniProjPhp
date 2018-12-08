@@ -51,25 +51,22 @@ class Modele
 
     public function connection_ok($pseudo,$mdp){
 
-        if($this->pseudo_ok($mdp)){
+        $convertPseudo =  htmlspecialchars($pseudo);
+
+        if($this->pseudo_ok($convertPseudo)){
+
+            $convertMdp = htmlspecialchars($mdp);
+
 
             $password = $this->connexion->prepare("SELECT motdePasse FROM joueurs WHERE pseudo=?;");
-            $password->bindParam(1,$pseudo);
+            $password->bindParam(1,$convertPseudo);
             $password->execute();
 
             $resultats = $password->fetchAll();
-            $password->closeCursor();;
+            $password->closeCursor();
 
-            if($resultats[0][0] != $mdp) {
+            $passcoder = crypt($convertPseudo, $resultats[0][0]);
 
-                return false;
-            }
-
-            $passcoder = crypt($pseudo, $resultats[0][0]);
-
-
-            echo $passcoder;
-            echo "<br>".$resultats[0][0];
             if($passcoder === $resultats[0][0]){
 
                 $statement = $this->connexion->prepare("SELECT * FROM joueurs where pseudo=? AND motDePasse=?;");

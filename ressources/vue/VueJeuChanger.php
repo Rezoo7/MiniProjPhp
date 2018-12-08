@@ -66,7 +66,7 @@ class VueJeuChanger
 
                                     #echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville1=".$ville_id."&ville2=".$_GET[ville]."><img src=\"".$src_image."\" width='50'></a>";
 
-                                    echo "<a href= http://localhost/miniproj/ressources/index.php?ville1=" . $ville_id . "&ville2=" . $_GET['ville1'] . "><img src=\"" . $src_image . "\"></a>";
+                                    echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville1=" . $ville_id . "&ville2=" . $_GET['ville1'] . "><img src=\"" . $src_image . "\"></a>";
 
                                     //TODO PONT AFFICHER AU MOMENT DU CLIQUE DEUXIEME VILLE
                                     // TODO AFFICHER VICTOIRE OU DEFAITE
@@ -120,7 +120,7 @@ class VueJeuChanger
 
 
         <a href='index.php?etat=recommencer'><button id="bouton"> Recommencer </button></a>
-        <a href='index.php?etat=stats'><button id="bouton"> Pause/Statistiques </button></a>
+        <a href='index.php?etat=stats'><button id="bouton"> Pause/    Statistiques </button></a>
         <a href='index.php?etat=deconnexion'><button id="bouton"> Quitter </button></a>
 
 
