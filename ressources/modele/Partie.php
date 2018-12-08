@@ -77,7 +77,8 @@ class Partie
      */
     public function win($pseudo_g){
 
-        $statement = $this->connexion->prepare("INSERT INTO parties VALUES NULL,?,1");
+        $this->idp++;
+        $statement = $this->connexion->prepare("INSERT INTO parties VALUES(NULL,?,1);");
         $statement->bindParam(1,$pseudo_g);
         $statement->execute();
         $statement->closeCursor();
@@ -90,9 +91,11 @@ class Partie
      * Méthode qui permet d'insérer un partie gagnée dans la base de donnée
      * La partie gagnée est désignée dans la colonne partieGagnee par le nombre 1
      */
+
+
     public function lose($pseudo_g){
 
-        $statement = $this->connexion->prepare("INSERT INTO parties VALUES NULL,?,0");
+        $statement = $this->connexion->prepare("INSERT INTO parties VALUES (NULL,?,0);");
         $statement->bindParam(1,$pseudo_g);
         $statement->execute();
         $statement->closeCursor();
