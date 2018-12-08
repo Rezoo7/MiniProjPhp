@@ -53,69 +53,59 @@ class ControleurJeuBridge
             $this->TheVue = $this->vuejeu->afficher_jeu($_SESSION['listes_villes']);
 
         }else{
-            echo"Variable session => ";
-            var_dump($_SESSION['listes_villes']);
+            //echo"Variable session => ";
+            //var_dump($_SESSION['listes_villes']);
             $this->TheVue = $this->vue_chan->changer($_SESSION['listes_villes']);
         }
     }
 
 
     public function couleur_ville($id_ville){
-
-
-        if((!isset($_SESSION['ville1']) && !isset($_SESSION['ville2'])) || (!empty($_SESSION['ville1']) && empty($_SESSION['ville2']))) {  //si session ville 1 null et session ville 2 null :
-
-
-            $_SESSION['ville1'] = $_GET['ville1'];  // IDs enregistrer dans les var sessions
-            $_SESSION['ville2'] = $_GET['ville2'];
-
-
-
-            $_GET['ville1'] = -1;
-            $_GET['ville2'] = -1;
-
-
-        }
-
-        if (!isset($_SESSION['liaison']) && !isset($_SESSION['nbrLiaison']))
+        //echo "retour en haut";
+        if($this->etatDeLaPartie()=="perdu")
         {
-            $_SESSION['liaison'] = array();
-            $_SESSION['nbrLiaison']= 0;
+            $this->vuejeu->perdu();
+
         }
 
+        elseif ($this->etatDeLaPartie()=="gagner")
+        {
+            $this->vuejeu->gagner();
+
+        }
+
+        else {
+            //echo "<br/> sinon";
+            if ((!isset($_SESSION['ville1']) && !isset($_SESSION['ville2'])) || (!empty($_SESSION['ville1']) && empty($_SESSION['ville2']))) {  //si session ville 1 null et session ville 2 null :
+                $_SESSION['ville1'] = $_GET['ville1'];  // IDs enregistrer dans les var sessions
+                $_SESSION['ville2'] = $_GET['ville2'];
+                $_GET['ville1'] = -1;
+                $_GET['ville2'] = -1;
+            }
+            if (!isset($_SESSION['liaison']) && !isset($_SESSION['nbrLiaison'])) {
+                $_SESSION['liaison'] = array();
+                $_SESSION['nbrLiaison'] = 0;
+            }
             $couleur_mise = false;
-
             $this->TheVue = $this->vue_chan->changer($_SESSION['listes_villes']);
-
             $x1 = $this->lesV->getVillePosX($id_ville);
             $y1 = $this->lesV->getVillePosY($id_ville);
-
-            echo "<br/> coordonnées de " . $id_ville . " :  " . $x1 . ", " . $y1;
-
+            //echo "<br/> coordonnées de " . $id_ville . " :  " . $x1 . ", " . $y1;
             if ($_GET['ville2'] > -1) {
                 $ville2 = $_GET['ville2'];
-
                 $x2 = $this->lesV->getVillePosX($ville2);
                 $y2 = $this->lesV->getVillePosY($ville2);
-
-
-                if ($this->lesV->liaisonPossible($id_ville, $ville2) && $this->lesV->getVilleID($id_ville)->lierVilles($ville2))
-                {
+                if ($this->lesV->liaisonPossible($id_ville, $ville2) && $this->lesV->getVilleID($id_ville)->lierVilles($ville2)) {
                     $this->lierlesVilles($id_ville, $ville2);
 
                     $couleur_mise = true;
                 }
-
-
             }
-
-
-
-
-        return $couleur_mise;
-
-
+            return $couleur_mise;
+        }
     }
+
+
 
     public function vue_actuelle(){
 
@@ -131,9 +121,9 @@ class ControleurJeuBridge
         $xVille2=$_SESSION['listes_villes']->getVillePosX($ville2);
         $yVille2=$_SESSION['listes_villes']->getVillePosY($ville2);
 
-        echo "<br> " . $ville1 ."Ville 1 :      Nombre de ponts => " . $_SESSION['listes_villes']->getVilleID($ville1)->getNombrePonts();
-        echo "<br> " . $ville2 ."Ville 2 :      Nombre de ponts => " . $_SESSION['listes_villes']->getVilleID($ville2)->getNombrePonts();
-        var_dump($_SESSION['listes_villes']);
+        //echo "<br> " . $ville1 ."Ville 1 :      Nombre de ponts => " . $_SESSION['listes_villes']->getVilleID($ville1)->getNombrePonts();
+        //echo "<br> " . $ville2 ."Ville 2 :      Nombre de ponts => " . $_SESSION['listes_villes']->getVilleID($ville2)->getNombrePonts();
+        //var_dump($_SESSION['listes_villes']);
 
 
         if(!empty($_SESSION['liaison'])) {
@@ -185,14 +175,13 @@ class ControleurJeuBridge
             $_SESSION['listes_villes']->getVilleID($ville2)->addPont();
             echo "AJOUT SI VIDE";
         }
-
-
         var_dump($_SESSION['liaison']);
-    }
+}
 
 
-    public function afficher_Stats(){
 
+    public function afficher_Stats()
+    {
 
 
         $classement = $this->partie_mod->meilleurs_Joueurs();
@@ -206,10 +195,42 @@ class ControleurJeuBridge
             $place++;
             echo $ligne;
         }
+    }
+    public function renvoyerLesVilles()
+    {
+        $nbr=0;
+        $liste=array();
+        for ($i = 0; $i <= 6; $i++) {
+            for ($j = 0; $j <= 6; $j++) {
+                if ($_SESSION['listes_villes']->existe($i, $j)) {
+                    $liste[$nbr]=$_SESSION['listes_villes']->getVille($i,$j);
+                    $nbr++;
+                }
+            }
+        }
+        return $liste;
+    }
 
+    public function etatDeLaPartie()
+    {
+        $ListeDesVilles= $this->renvoyerLesVilles();
 
+        if($this->partie_mod->isLose($ListeDesVilles))
+        {
+            return "perdu";
+        }
+
+        if($this->partie_mod->isWin($ListeDesVilles))
+        {
+            return "gagner";
+        }
+
+        return;
 
     }
+
+
+
 
 
 }

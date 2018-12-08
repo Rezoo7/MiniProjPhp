@@ -90,10 +90,10 @@ class VueJeuBridge
 
             <br>  <br>
 
+            ?><?php
+            $this->bouttons();
 
-                <a href='index.php?etat=recommencer'><button id="bouton"> Recommencer </button></a>
-                <a href='index.php?etat=stats'><button id="bouton"> Statistiques </button></a>
-                <a href='index.php?etat=deconnexion'><button id="bouton"> Quitter </button></a>
+              ?>
             </body>
             </html>
 
@@ -102,6 +102,30 @@ class VueJeuBridge
 
     }
 
+    public function bouttons()
+    {
+        ?>
+
+        <a href='index.php?etat=recommencer'><button id="bouton"> Recommencer </button></a>
+        <a href='index.php?etat=stats'><button id="bouton"> Statistiques </button></a>
+        <a href='index.php?etat=deconnexion'><button id="bouton"> Quitter </button></a>
+
+        <?php
+    }
+
+
+    public function perdu()
+    {
+        echo "Vous avez perdu";
+        $this->bouttons();
+    }
+
+
+    public function gagner()
+    {
+        echo "Vous avez gagner";
+        $this->bouttons();
+    }
 
 
 

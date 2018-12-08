@@ -47,13 +47,27 @@ class Partie
     public function isWin($var_villes){
 
         foreach ($var_villes as $ville ){
-            if($ville->getNombrePonts() != $ville->getNombrePontsMax()){
+            if($ville->getNombrePonts() < $ville->getNombrePontsMax()){
                 return false;
             }
+            //echo "Ville :" . $ville->getNombrePonts() . "Nombre MAX" . $ville->getNombrePontsMax();
         }
         return true;
-
     }
+
+    public function isLose($var_villes){
+
+        foreach ($var_villes as $ville ){
+            if($ville->getNombrePonts() > $ville->getNombrePontsMax()){
+                return true;
+            }
+            //echo "Ville :" . $ville->getNombrePonts() . "Nombre MAX" . $ville->getNombrePontsMax();
+        }
+
+        return false;
+    }
+
+
 
     /**
      * @param $pseudo_g : pseudo du joueur
