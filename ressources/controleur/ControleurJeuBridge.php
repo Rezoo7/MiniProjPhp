@@ -224,7 +224,7 @@ class ControleurJeuBridge
 
         if($this->partie_mod->isLose($ListeDesVilles))
         {
-            unset($_SESSION['listes_villes']);
+
             unset($_SESSION['ville1']);
             unset($_SESSION['ville2']);
             unset($_SESSION['liaison']);
@@ -234,7 +234,7 @@ class ControleurJeuBridge
 
         if($this->partie_mod->isWin($ListeDesVilles))
         {
-            unset($_SESSION['listes_villes']);
+
             unset($_SESSION['ville1']);
             unset($_SESSION['ville2']);
             unset($_SESSION['liaison']);
