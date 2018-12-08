@@ -24,7 +24,7 @@ class VueJeuBridge
             <h1> Bienvenue Sur le Jeu du Bridge ! </h1>
             <h4> Nombre de ponts à construire : <?php echo " ".$liste_villes->total_Ponts()?></h4>
             <br>
-            <h5> <B> APPUYEZ SUR UNE VILLE POUR DEMARRER LE JEU : </B> </h5>
+            <h5> <B> APPUYEZ SUR UNE VILLE POUR DEMARRER / REPRENDRE LE JEU : </B> </h5>
             <br>
             <br>
             <table class="center" cellpadding="0" cellspacing="0" border="0">
@@ -102,7 +102,7 @@ class VueJeuBridge
         ?>
 
         <a href='index.php?etat=recommencer'><button id="bouton"> Recommencer </button></a>
-        <a href='index.php?etat=stats'><button id="bouton"> Statistiques </button></a>
+        <a href='index.php?etat=stats'><button id="bouton"> Pause / Statistiques </button></a>
         <a href='index.php?etat=deconnexion'><button id="bouton"> Quitter </button></a>
 
         <?php

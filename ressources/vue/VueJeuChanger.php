@@ -9,7 +9,7 @@
 
 class VueJeuChanger
 {
-    //TODO Nettoyer le code grâce a comparer_X($id1,$id2) et comparer_Y(same)
+
 
 
     /**
@@ -121,7 +121,7 @@ class VueJeuChanger
 
 
         <a href='index.php?etat=recommencer'><button id="bouton"> Recommencer </button></a>
-        <a href='index.php?etat=stats'><button id="bouton"> Statistiques </button></a>
+        <a href='index.php?etat=stats'><button id="bouton"> Pause/Statistiques </button></a>
         <a href='index.php?etat=deconnexion'><button id="bouton"> Quitter </button></a>
 
 
