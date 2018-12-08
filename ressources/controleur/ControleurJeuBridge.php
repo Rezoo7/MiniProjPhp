@@ -101,7 +101,7 @@ class ControleurJeuBridge
 
                 if ($this->lesV->liaisonPossible($id_ville, $ville2) && $this->lesV->getVilleID($id_ville)->lierVilles($ville2))
                 {
-                    $this->lierlesVIlles($id_ville, $ville2);
+                    $this->lierlesVilles($id_ville, $ville2);
 
                     $couleur_mise = true;
                 }
@@ -123,8 +123,18 @@ class ControleurJeuBridge
     }
 
 
-    public function lierlesVIlles($id_ville, $ville2)
+    public function lierlesVilles($ville1, $ville2)
     {
+
+        $xVille1=$_SESSION['listes_villes']->getVillePosX($ville1);
+        $yVille1=$_SESSION['listes_villes']->getVillePosY($ville1);
+        $xVille2=$_SESSION['listes_villes']->getVillePosX($ville2);
+        $yVille2=$_SESSION['listes_villes']->getVillePosY($ville2);
+
+        echo "<br> " . $ville1 ."Ville 1 : ponts" . $_SESSION['listes_villes']->getVilleID($ville1)->getNombrePonts();
+        echo "<br> " . $ville2 ."Ville 2 : ponts" . $_SESSION['listes_villes']->getVilleID($ville2)->getNombrePonts();
+        var_dump($_SESSION['listes_villes']);
+
 
         if(!empty($_SESSION['liaison'])) {
             $exist=false;
@@ -137,7 +147,7 @@ class ControleurJeuBridge
                 $v2 = $association[1];
                 $nombre = $association[2];
 
-                if ((($v1 == $id_ville && $v2 == $ville2) || ($v2 == $id_ville && $v1 == $ville2))) {
+                if ((($v1 == $ville1 && $v2 == $ville2) || ($v2 == $ville1 && $v1 == $ville2))) {
                     $exist=true;
                     $nbrDefinitif=$nbr;
                 }
@@ -153,26 +163,33 @@ class ControleurJeuBridge
                 #var_dump($_SESSION['liaison'][$nbrDefinitif]);
                 $_SESSION['liaison'][$nbrDefinitif][2]++;
                 echo "AJOUT S'IL EXSITE MAIS LE NOMBRE N'EST PAS DEPASSE";
+                $_SESSION['listes_villes']->getVilleID($ville1)->addPont();
+                $_SESSION['listes_villes']->getVilleID($ville2)->addPont();
+
             }
             else if(!$exist)
             {
-                $_SESSION['liaison'][$_SESSION['nbrLiaison']] = array($id_ville, $ville2, 1);
+                $_SESSION['liaison'][$_SESSION['nbrLiaison']] = array($ville1, $ville2, 1);
                 $_SESSION['nbrLiaison']++;
                 echo 'AJOUT SIL NEXSITE PAS';
+                $_SESSION['listes_villes']->getVilleID($ville1)->addPont();
+                $_SESSION['listes_villes']->getVilleID($ville2)->addPont();
             }
 
         }
         else
         {
-            $_SESSION['liaison'][$_SESSION['nbrLiaison']] = array($id_ville, $ville2, 1);
+            $_SESSION['liaison'][$_SESSION['nbrLiaison']] = array($ville1, $ville2, 1);
             $_SESSION['nbrLiaison']++;
-
+            $_SESSION['listes_villes']->getVilleID($ville1)->addPont();
+            $_SESSION['listes_villes']->getVilleID($ville2)->addPont();
             echo "AJOUT SI VIDE";
         }
 
 
         var_dump($_SESSION['liaison']);
     }
+
 
     public function afficher_Stats(){
 
