@@ -136,7 +136,7 @@ class VueJeuBridge
     {
         $this->header();
         echo "<H1>Vous avez gagner</H1>";
-        $this->bouttons();
+
     }
 
 
