@@ -51,42 +51,49 @@ class Modele
 
     public function connection_ok($pseudo,$mdp){
 
-        $convertPseudo =  htmlspecialchars($pseudo);
+        $code_auth = 1; // code retourné si connection ok
 
-        if($this->pseudo_ok($convertPseudo)){
-
-            $convertMdp = htmlspecialchars($mdp);
+        if($this->pseudo_ok($pseudo)){
 
 
             $password = $this->connexion->prepare("SELECT motdePasse FROM joueurs WHERE pseudo=?;");
-            $password->bindParam(1,$convertPseudo);
+            $password->bindParam(1,$pseudo);
             $password->execute();
 
             $resultats = $password->fetchAll();
-            $password->closeCursor();
 
-            $passcoder = crypt($convertPseudo, $resultats[0][0]);
+            $passcoder = crypt($mdp, $resultats[0][0]);
+
+            if(crypt($mdp,$resultats[0][0]) != $passcoder){
+
+                return -2;
+            }
+
 
             if($passcoder === $resultats[0][0]){
 
                 $statement = $this->connexion->prepare("SELECT * FROM joueurs where pseudo=? AND motDePasse=?;");
-                $statement->bindParam(1,$convertPseudo);
+                $statement->bindParam(1,$pseudo);
                 $statement->bindParam(2,$resultats[0][0]);
                 $statement->execute();
 
                 $reponse = $statement->fetchAll();
                 $statement->closeCursor();
 
+
                 return(count($reponse) > 0);
+
+
             }
             else{
-
-                return false;
+                 $code_auth = -2; // Si mot de pass pas ok retourner -2
+                return $code_auth;
             }
         }
         else{
 
-            return false;
+            $code_auth = -1; // Si pseudo pas ok retourner -1
+            return $code_auth;
         }
 
 
@@ -136,5 +143,6 @@ class Modele
             $this->deconnexion();
         }
     }
+
 
 }

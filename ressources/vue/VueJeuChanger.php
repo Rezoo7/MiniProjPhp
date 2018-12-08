@@ -68,7 +68,7 @@ class VueJeuChanger
 
                                     echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville1=" . $ville_id . "&ville2=" . $_GET['ville1'] . "><img src=\"" . $src_image . "\"></a>";
 
-                                    //TODO PONT AFFICHER AU MOMENT DU CLIQUE DEUXIEME VILLE
+
                                     // TODO AFFICHER VICTOIRE OU DEFAITE
 
                                 }
