@@ -159,7 +159,7 @@ class ControleurJeuBridge
             {
                 #var_dump($_SESSION['liaison'][$nbrDefinitif]);
                 $_SESSION['liaison'][$nbrDefinitif][2]++;
-                echo "AJOUT S'IL EXSITE MAIS LE NOMBRE N'EST PAS DEPASSE";
+
                 $_SESSION['listes_villes']->getVilleID($ville1)->addPont();
                 $_SESSION['listes_villes']->getVilleID($ville2)->addPont();
 
@@ -168,7 +168,7 @@ class ControleurJeuBridge
             {
                 $_SESSION['liaison'][$_SESSION['nbrLiaison']] = array($ville1, $ville2, 1);
                 $_SESSION['nbrLiaison']++;
-                echo 'AJOUT SIL NEXSITE PAS';
+
                 $_SESSION['listes_villes']->getVilleID($ville1)->addPont();
                 $_SESSION['listes_villes']->getVilleID($ville2)->addPont();
             }
@@ -180,7 +180,7 @@ class ControleurJeuBridge
             $_SESSION['nbrLiaison']++;
             $_SESSION['listes_villes']->getVilleID($ville1)->addPont();
             $_SESSION['listes_villes']->getVilleID($ville2)->addPont();
-            echo "AJOUT SI VIDE";
+
         }
         var_dump($_SESSION['liaison']);
 }

@@ -129,10 +129,6 @@ class VueJeuChanger
         </html>
 
 <?php
-
-
-        echo $_GET['ville1'] ." - ";
-        echo $_GET['ville2'];
     }
 
 
