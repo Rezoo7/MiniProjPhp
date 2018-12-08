@@ -52,6 +52,7 @@ class ControleurJeuBridge
             $_SESSION['listes_villes'] = $villes;
             $this->TheVue = $this->vuejeu->afficher_jeu($_SESSION['listes_villes']);
 
+
         }else{
             //echo"Variable session => ";
             //var_dump($_SESSION['listes_villes']);
@@ -64,14 +65,20 @@ class ControleurJeuBridge
         //echo "retour en haut";
         if($this->etatDeLaPartie()=="perdu")
         {
+            $this->partie_mod->win($_SESSION['pseudo']);
+            $this->vuejeu->header();
             $this->vuejeu->perdu();
-
+            $this->vuejeu->bouttons();
+            $this->afficher_Stats();
         }
 
         elseif ($this->etatDeLaPartie()=="gagner")
         {
+            $this->partie_mod->lose($_SESSION['pseudo']);
+            $this->vuejeu->header();
             $this->vuejeu->gagner();
-
+            $this->vuejeu->bouttons();
+            $this->afficher_Stats();
         }
 
         else {
@@ -217,11 +224,21 @@ class ControleurJeuBridge
 
         if($this->partie_mod->isLose($ListeDesVilles))
         {
+            unset($_SESSION['listes_villes']);
+            unset($_SESSION['ville1']);
+            unset($_SESSION['ville2']);
+            unset($_SESSION['liaison']);
+            unset($_SESSION['nbrLiaison']);
             return "perdu";
         }
 
         if($this->partie_mod->isWin($ListeDesVilles))
         {
+            unset($_SESSION['listes_villes']);
+            unset($_SESSION['ville1']);
+            unset($_SESSION['ville2']);
+            unset($_SESSION['liaison']);
+            unset($_SESSION['nbrLiaison']);
             return "gagner";
         }
 

@@ -14,16 +14,11 @@ class VueJeuBridge
 
     public function afficher_jeu($liste_villes){
 
+        $this->header();
 
         ?>
 
-            <!doctype html>
-            <html style="background-color: aliceblue">
-            <head>
-                <meta charset="UTF-8">
-                <link rel="stylesheet" href="styleJeu.css">
-                <title> Jeu du Bridge  </title>
-            </head>
+
             <body>
 
             <h1> Bienvenue Sur le Jeu du Bridge ! </h1>
@@ -112,18 +107,29 @@ class VueJeuBridge
 
         <?php
     }
-
+    public function header()
+    {
+       ?> <!doctype html>
+            <html style="background-color: aliceblue">
+            <head>
+                <meta charset="UTF-8">
+                <link rel="stylesheet" href="styleJeu.css">
+                <title> Jeu du Bridge  </title>
+            </head>
+    <?php
+    }
 
     public function perdu()
     {
-        echo "Vous avez perdu";
-        $this->bouttons();
+        echo "<H1><B>Vous avez perdu</B></H1>";
+
     }
 
 
     public function gagner()
     {
-        echo "Vous avez gagner";
+        $this->header();
+        echo "<H1>Vous avez gagner</H1>";
         $this->bouttons();
     }
 
