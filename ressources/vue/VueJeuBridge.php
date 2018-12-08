@@ -29,6 +29,8 @@ class VueJeuBridge
             <h1> Bienvenue Sur le Jeu du Bridge ! </h1>
             <h4> Nombre de ponts à construire : <?php echo " ".$liste_villes->total_Ponts()?></h4>
             <br>
+            <h5> <B> APPUYEZ SUR UNE VILLE POUR DEMARRER LE JEU : </B> </h5>
+            <br>
             <br>
             <table class="center" cellpadding="0" cellspacing="0" border="0">
                 <?php
