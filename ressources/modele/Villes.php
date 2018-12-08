@@ -190,6 +190,9 @@ return isset($this->villes[$i][$j]);
     }
 
 
+    /**  Renvoie le nombre de ponts total à construire pour terminener la partie.
+     * @return $total qui représente la somme des nombre de ponts maximum de toutes les villes.
+     */
     public function total_Ponts(){
 
         $total = 0;
