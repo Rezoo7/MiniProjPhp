@@ -131,8 +131,8 @@ class ControleurJeuBridge
         $xVille2=$_SESSION['listes_villes']->getVillePosX($ville2);
         $yVille2=$_SESSION['listes_villes']->getVillePosY($ville2);
 
-        echo "<br> " . $ville1 ."Ville 1 : ponts" . $_SESSION['listes_villes']->getVilleID($ville1)->getNombrePonts();
-        echo "<br> " . $ville2 ."Ville 2 : ponts" . $_SESSION['listes_villes']->getVilleID($ville2)->getNombrePonts();
+        echo "<br> " . $ville1 ."Ville 1 :      Nombre de ponts => " . $_SESSION['listes_villes']->getVilleID($ville1)->getNombrePonts();
+        echo "<br> " . $ville2 ."Ville 2 :      Nombre de ponts => " . $_SESSION['listes_villes']->getVilleID($ville2)->getNombrePonts();
         var_dump($_SESSION['listes_villes']);
 
 
