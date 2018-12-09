@@ -27,7 +27,11 @@ function getVille($i,$j){
 return $this->villes[$i][$j];
 }
 
-// retourne une ville grâce à son ID.
+    /**
+     * Permet d'obtenir une Ville grâce à un ID
+     * @param $id de la Ville
+     * @return la ville
+     */
 function getVilleID($id){
     for ($i=0; $i<7; $i++) //Parcours de X
     {
@@ -43,7 +47,11 @@ function getVilleID($id){
     return null; // SI rien est trouvé on retourne null.
     }
 
-    //Retourne la positionX de la ville reherchée, grâce à son ID.
+    /**
+     * Retourne la position X de la ville avec l'ID mis en paramètre
+     * @param $id de la Ville
+     * @return int Position X
+     */
     function getVillePosX($id)
     {
 
@@ -62,7 +70,11 @@ function getVilleID($id){
         return -1; //s'il n'a pas de position x alors on retourne -1.
         }
 
-    //Retourne la positionX de la ville reherchée, grâce à son ID.
+    /**
+     * Retourne la position Y de la ville avec l'ID mis en paramètre
+     * @param $id de la Ville
+     * @return int Position Y
+     */
     function getVillePosY($id)
     {
         for ($i=0; $i<7; $i++)//parcours de X
@@ -113,16 +125,26 @@ function getVilleID($id){
     }
 
 
-// modifieur qui value le nombre de ponts de la ville en position $i et $j;
-// précondition: la ville en position $i et $j existe
+    /**
+     * Permet de mettre la valeur $nombreponts sur la Ville i,j
+     *
+     * @param $i position x de la ville
+     * @param $j position y de la ville
+     * @param $nombrePonts à mettre sur cette ville
+     */
 
 function setVille($i,$j,$nombrePonts){
 $this->villes[$i][$j]->setNombrePonts($nombrePonts);
 }
 
 
-// permet de tester si la ville en position $i et $j existe 
-// postcondition: vrai si la ville existe, faux sinon
+    /**
+     * Permet de Savoir si une Ville existe ou non
+     *
+     * @param $i
+     * @param $j
+     * @return bool Existe ou Non
+     */
 
 function existe($i,$j){
 return isset($this->villes[$i][$j]);
@@ -173,7 +195,7 @@ return isset($this->villes[$i][$j]);
                 {
                     $tmp = $vPosition_x1;
                     $vPosition_x1=$vPosition_x2;
-                    $vPosition_x2=$tmp; //on inverse le tout (on pourrait aussi utiliser max()) #TODO corriger ce détail#
+                    $vPosition_x2=$tmp; //on inverse le tout (on pourrait aussi utiliser max())
                 }
 
                 for ($i=$vPosition_x2+1; $i<$vPosition_x1; $i++) //pour i allant de la coordonnée du plus petit X jusqu'à l'autre

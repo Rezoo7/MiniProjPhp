@@ -11,7 +11,12 @@ class Ville{
     private $villesLiees;
 
 
-    // constructeur qui permet de valuer les 2 attributs de la classe
+    /**
+     * Ville Constructeur
+     * @param $id : ID de la Ville
+     * @param $nombrePontsMax: Son nombre de ponts Maximal
+     * @param $nombrePonts: Son nombre de Pons Actuel
+     */
     function __construct($id,$nombrePontsMax,$nombrePonts){
     $this->id=$id;
     $this->nombrePontsMax=$nombrePontsMax;
@@ -20,41 +25,59 @@ class Ville{
 
     }
 
-    // sélecteur qui retourne la valeur de l'attribut id
+    /**
+     * @return ID de la Ville
+     */
     function getId(){
     return $this->id;
     }
 
 
-    // sélecteur qui retourne la valeur de l'attribut nombrePontsMax
+    /**
+     * @return Nombre de Ponts Maximal de la Ville
+     */
     function getNombrePontsMax(){
     return $this->nombrePontsMax;
     }
-    // sélecteur qui retourne la valeur de l'attribut nombrePonts
+
+    /**
+     * @return Nombre de Ponts de la Ville
+     */
     function getNombrePonts(){
     return $this->nombrePonts;
     }
 
 
-    // sélecteur qui retourne la valeur de l'attribut nombrePonts
+    /**
+     * @return Les villes Liees à la Ville
+     */
     function getLiaison(){
         return $this->villesLiees;
         }
-    // sélecteur qui retourne la valeur de l'attribut nombrePonts
 
 
-    //modifieur qui permet de valuer l'attribut nombrePonts
+    /**
+     * Permet de Set le nmobre de ponts de la Ville
+     * @param un Nombre de Ponts
+     */
     function setNombrePonts($nb){
     $this->nombrePonts=$nb;
     }
 
-    //incrémentaeur du nombre de ponts.
+    /**
+     * Fonction qui Incrémenter le nombre de ponts
+     */
     function addPont(){
         $this->nombrePonts++;
     }
 
 
-    //il faut ici implémenter les méthodes qui permettent de lier des villes entre elles, ...
+    /**
+     * Fonction qui lie cette ville à une autre
+     *
+     * @param $ville
+     * @return bool
+     */
 
     function lierVilles($ville){
 
