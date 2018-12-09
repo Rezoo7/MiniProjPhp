@@ -116,19 +116,29 @@ class Partie
         $lesvictoires = $statement->fetchAll();
         $statement->closeCursor();
 
-        $nombreV = $lesvictoires[0][0];
+        if(!empty($lesvictoires))
+        {
+            $nombreV = $lesvictoires[0][0];
+        }
 
-        $statementL = $this->connexion->prepare("SELECT SUM(partieGagnee) FROM parties WHERE pseudo = ? AND partieGagnee=0 GROUP BY pseudo");
+        $statementL = $this->connexion->prepare("SELECT COUNT(partieGagnee) FROM parties WHERE pseudo = ? AND partieGagnee=0 GROUP BY pseudo");
         $statementL->bindParam(1,$pseudo_g);
         $statementL->execute();
-        $lesdefaites = $statement->fetchAll();
+        $lesdefaites = $statementL->fetchAll();
         $statementL->closeCursor();
+        if(!empty($lesdefaites))
+        {
+            $nombreL = $lesdefaites[0][0];
+            $ratio = $nombreV/($nombreV+$nombreL);
+            return intval($ratio * 100);
+        }
 
-        $nombreL = $lesdefaites[0][0];
+        return "VousN'AvezJamaisPERDU";
 
-        $ratio = $nombreV/($nombreV+$nombreL);
 
-        return ($ratio * 100);
+
+
+
 
 
 
