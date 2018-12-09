@@ -110,38 +110,36 @@ class Partie
 
     public function ratio($pseudo_g){
 
-        $statement = $this->connexion->prepare("SELECT SUM(partieGagnee) FROM parties WHERE pseudo = ? AND partieGagnee=1 GROUP BY pseudo");
-        $statement->bindParam(1,$pseudo_g);
-        $statement->execute();
-        $lesvictoires = $statement->fetchAll();
-        $statement->closeCursor();
+        if ($this->nbr_parties($pseudo_g)>0) {
 
-        if(!empty($lesvictoires))
-        {
-            $nombreV = $lesvictoires[0][0];
+            $statement = $this->connexion->prepare("SELECT SUM(partieGagnee) FROM parties WHERE pseudo = ? AND partieGagnee=1 GROUP BY pseudo");
+            $statement->bindParam(1, $pseudo_g);
+            $statement->execute();
+            $lesvictoires = $statement->fetchAll();
+            $statement->closeCursor();
+
+            if (!empty($lesvictoires)) {
+                $nombreV = $lesvictoires[0][0];
+
+
+                $statementL = $this->connexion->prepare("SELECT COUNT(partieGagnee) FROM parties WHERE pseudo = ? AND partieGagnee=0 GROUP BY pseudo");
+                $statementL->bindParam(1, $pseudo_g);
+                $statementL->execute();
+                $lesdefaites = $statementL->fetchAll();
+                $statementL->closeCursor();
+                if (!empty($lesdefaites)) {
+                    $nombreL = $lesdefaites[0][0];
+                    $ratio = $nombreV / ($nombreV + $nombreL);
+                    return ", vous avez ".intval($ratio * 100) . "% de réussite avec ". $this->nbr_parties($pseudo_g). " parties jouées.";
+                }
+                return ", vous n'avez jamais perdu";
+            }
+            return ", vous n'avez jamais gagner";
         }
-
-        $statementL = $this->connexion->prepare("SELECT COUNT(partieGagnee) FROM parties WHERE pseudo = ? AND partieGagnee=0 GROUP BY pseudo");
-        $statementL->bindParam(1,$pseudo_g);
-        $statementL->execute();
-        $lesdefaites = $statementL->fetchAll();
-        $statementL->closeCursor();
-        if(!empty($lesdefaites))
+        else
         {
-            $nombreL = $lesdefaites[0][0];
-            $ratio = $nombreV/($nombreV+$nombreL);
-            return intval($ratio * 100);
+            return "vous n'avez jamais joué";
         }
-
-        return "VousN'AvezJamaisPERDU";
-
-
-
-
-
-
-
-
     }
 
     /**
@@ -158,7 +156,6 @@ class Partie
 
         return $classement;
 
-
     }
 
     public function nbr_gagnees($pseudo){
@@ -170,6 +167,18 @@ class Partie
 
         $victoires = $nombre[0][0];
         return $victoires;
+    }
+
+
+    public function nbr_parties($pseudo){
+
+        $statement = $this->connexion->prepare("SELECT COUNT(partieGagnee) FROM parties WHERE pseudo=? GROUP BY pseudo");
+        $statement->bindParam(1,$pseudo);
+        $statement->execute();
+        $nombre = $statement->fetchAll();
+
+        $total = $nombre[0][0];
+        return $total;
     }
 
 

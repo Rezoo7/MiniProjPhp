@@ -205,7 +205,7 @@ class ControleurJeuBridge
         }
 
         echo "<h4>Vos Statistiques</h4>";
-        echo "<p style='text-align: center'>" . $_SESSION['pseudo'] ." vous avez ". $this->partie_mod->ratio($_SESSION['pseudo']) ."% de victoires";
+        echo "<p style='text-align: center'>" . $_SESSION['pseudo']. $this->partie_mod->ratio($_SESSION['pseudo']);
     }
     public function renvoyerLesVilles()
     {
