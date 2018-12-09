@@ -32,7 +32,7 @@ class Routeur{
                 echo " <h1 style='color: darkred'> L'un des champs est vide</h1>";
           }
           else {
-              echo " <h1 style='color: #28AD30'> Le Compte à été créer ! </h1>";
+
               $this->ctrlAthentification->ajouter_compte($_POST['pseudoC'], $_POST['mdp1'], $_POST['mdp2']);
           }
       }

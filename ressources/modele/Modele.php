@@ -164,6 +164,8 @@ class Modele
             $statement->bindParam(2, $mdp_encode);
             $statement->execute();
 
+            echo " <h1 style='color: #28AD30'> Le Compte à été créer ! </h1>";
+
         }catch (PDOException $e){
 
             echo "<h2 style='color: darkred'>Le compte est déja dans la base de donnée !</h2>";
