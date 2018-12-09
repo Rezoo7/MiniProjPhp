@@ -110,7 +110,7 @@ class Partie
 
     public function ratio($pseudo_g){
 
-        if ($this->nbr_parties($pseudo_g)==0) {
+        if ($this->nbr_parties($pseudo_g)>0) {
 
             $statement = $this->connexion->prepare("SELECT SUM(partieGagnee) FROM parties WHERE pseudo = ? AND partieGagnee=1 GROUP BY pseudo");
             $statement->bindParam(1, $pseudo_g);
@@ -177,7 +177,7 @@ class Partie
         $statement->execute();
         $nombre = $statement->fetchAll();
 
-        if (!empty ($total))
+        if (!empty ($nombre))
         {
             $total = $nombre[0][0];
             return $total;
