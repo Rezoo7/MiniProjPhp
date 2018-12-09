@@ -69,7 +69,6 @@ class VueJeuChanger
                                     echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville1=" . $ville_id . "&ville2=" . $_GET['ville1'] . "><img src=\"" . $src_image . "\"></a>";
 
 
-                                    // TODO AFFICHER VICTOIRE OU DEFAITE
 
                                 }
 
@@ -112,7 +111,6 @@ class VueJeuChanger
             }
             ?>
         </table>
-        <!-- bonjour je fais un test | SALUT BUGO | Yo Monsieur REZOO hhh-->
 
         </form>
 
