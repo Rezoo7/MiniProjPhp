@@ -52,6 +52,20 @@ function authentifier($pseudo, $motdepasse){
 
 }
 
+function ajouter_compte($pseudo,$mdp1,$mdp2){
+
+
+    if($mdp1 == $mdp2){
+
+        $this->modele->ajout_compte($pseudo,$mdp1);
+    }
+    else{
+
+        echo "<br> <h1 style='color: darkred'>Mots de Passe différents</h1> ";
+    }
+
+}
+
 
 
 

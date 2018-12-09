@@ -25,6 +25,18 @@ class Routeur{
   public function routeurRequête()
   {
 
+      if(isset($_POST['pseudoC']) && isset($_POST['mdp1']) && isset($_POST['mdp2'])){
+
+          if($_POST['pseudoC'] == "" || $_POST['mdp1'] == "" || $_POST['mdp2'] == ""){
+
+                echo " <h1 style='color: darkred'> L'un des champs est vide</h1>";
+          }
+          else {
+              $this->ctrlAthentification->ajouter_compte($_POST['pseudoC'], $_POST['mdp1'], $_POST['mdp2']);
+          }
+      }
+
+
 
       if (isset($_GET['etat'])) {
 
@@ -89,6 +101,7 @@ class Routeur{
 
           }
       }
+
 
 
       if (!isset($_SESSION['pseudo'])) {

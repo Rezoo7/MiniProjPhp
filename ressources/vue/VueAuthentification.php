@@ -38,6 +38,31 @@ class VueAuthentification
 
 
         </form>
+
+        <br>
+        <br>
+
+        <p> Nouveau sur le jeu ? </p> <br>
+        <p> &#9660 Créez vous un Compte  &#9660</p>
+
+        <form action="index.php" method="POST">
+            <fieldset>
+                <legend> Création d'un Compte   </legend>
+
+                <p> Pseudo: <input type="name" name="pseudoC"> </p>
+                <p> Mot de Passe: <input type = "password" name="mdp1"></p>
+                <p> Confirmez Mot de Passe <input type="password" name="mdp2"> </p>
+
+            </fieldset>
+            <br>
+
+            <input id="connec" type="submit" value="Creation">
+
+
+        </form>
+
+
+
         </body>
         </html>
 

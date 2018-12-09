@@ -145,4 +145,33 @@ class Modele
     }
 
 
+    public function ajout_compte($pseudo,$motdepasse){
+
+        try {
+            $statement = $this->connexion->prepare("INSERT INTO joueurs VALUES(?,?);");
+            $statement->bindParam(1, $pseudo);
+
+            $password = $this->connexion->prepare("SELECT motdePasse FROM joueurs WHERE pseudo=?;");
+            $password->bindParam(1, $pseudo);
+            $password->execute();
+
+            $resultats = $password->fetchAll();
+
+            $mdp_encode = crypt($motdepasse, $resultats[0][0]);
+
+
+
+            $statement->bindParam(2, $mdp_encode);
+            $statement->execute();
+
+        }catch (PDOException $e){
+
+            echo "<h2 style='color: darkred'>Le compte est déja dans la base de donnée !</h2>";
+        }
+
+        return;
+
+    }
+
+
 }
