@@ -42,7 +42,7 @@ function authentifier($pseudo, $motdepasse){
   else {
 
       if ($this->modele->connection_ok($pseudo, $motdepasse) == -1) {
-          $this->vueerreur->afficher_erreur("Connection Echouée : Votre Pseudo est Invalide !)");
+          $this->vueerreur->afficher_erreur("Connection Echouée : Votre Pseudo est Invalide !");
       }
       elseif($this->modele->connection_ok($pseudo, $motdepasse) == -2){
 

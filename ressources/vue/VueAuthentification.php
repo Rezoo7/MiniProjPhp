@@ -40,9 +40,8 @@ class VueAuthentification
         </form>
 
         <br>
-        <br>
 
-        <p> Nouveau sur le jeu ? </p> <br>
+        <p> Nouveau sur le jeu ? </p>
         <p> &#9660 Créez vous un Compte  &#9660</p>
 
         <form action="index.php" method="POST">
