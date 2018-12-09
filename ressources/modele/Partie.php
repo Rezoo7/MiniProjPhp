@@ -177,8 +177,13 @@ class Partie
         $statement->execute();
         $nombre = $statement->fetchAll();
 
-        $total = $nombre[0][0];
-        return $total;
+        if (!empty ($total))
+        {
+            $total = $nombre[0][0];
+            return $total;
+        }
+        else return 0;
+
     }
 
 
