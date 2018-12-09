@@ -69,7 +69,7 @@ class VueJeuBridge
 
             <br>  <br>
 
-            ?><?php
+            <?php
             $this->bouttonsEnJeu();
 
               ?>
