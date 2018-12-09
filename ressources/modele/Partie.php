@@ -77,7 +77,7 @@ class Partie
      */
     public function win($pseudo_g){
 
-        $this->idp++;
+
         $statement = $this->connexion->prepare("INSERT INTO parties VALUES(NULL,?,1);");
         $statement->bindParam(1,$pseudo_g);
         $statement->execute();
