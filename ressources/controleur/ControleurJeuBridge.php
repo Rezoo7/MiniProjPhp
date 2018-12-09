@@ -65,7 +65,7 @@ class ControleurJeuBridge
         //echo "retour en haut";
         if($this->etatDeLaPartie()=="perdu")
         {
-            $this->partie_mod->win($_SESSION['pseudo']);
+            $this->partie_mod->lose($_SESSION['pseudo']);
             $this->vuejeu->header();
             $this->vuejeu->perdu();
             $this->vuejeu->bouttonsFinDeGame();
@@ -74,7 +74,7 @@ class ControleurJeuBridge
 
         elseif ($this->etatDeLaPartie()=="gagner")
         {
-            $this->partie_mod->lose($_SESSION['pseudo']);
+            $this->partie_mod->win($_SESSION['pseudo']);
             $this->vuejeu->header();
             $this->vuejeu->gagner();
             $this->vuejeu->bouttonsFinDeGame();
