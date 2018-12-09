@@ -11,7 +11,10 @@ class VueJeuBridge
 {
 
 
-
+    /**
+     * @param $liste_villes prend en paramètre l'objet Villes déjà créé avant.
+     *  fonction qui affiche le jeu (en mode "pause")
+     */
     public function afficher_jeu($liste_villes){
 
         $this->header();
@@ -82,8 +85,9 @@ class VueJeuBridge
     }
 
 
-
-
+    /**
+     * méthode qui affiche les boutons à l'écran
+     */
     public function bouttonsEnJeu()
     {
         ?>
@@ -94,12 +98,20 @@ class VueJeuBridge
 
         <?php
     }
+
+    /**
+     * méthode qui affiche les boutons à l'écran lorsqu'on est en fin de jeu.
+     */
     public function bouttonsFinDeGame()
     {
         ?><a href='index.php?etat=recommencer'><button id="bouton"> Recommencer </button></a>
         <a href='index.php?etat=deconnexion'><button id="bouton"> Quitter </button></a>
         <?php
         }
+
+    /**
+     * méthode qui affiche toute l'entête pour créer la page en HTML
+     */
     public function header()
     {
        ?> <!doctype html>
@@ -112,13 +124,18 @@ class VueJeuBridge
     <?php
     }
 
+    /**
+     * Méthode qui retourne le message de perte.
+     */
     public function perdu()
     {
         echo "<H1><B>Vous avez perdu</B></H1>";
 
     }
 
-
+    /**
+     * Méthode qui retourne le message de victoire.
+     */
     public function gagner()
     {
         $this->header();

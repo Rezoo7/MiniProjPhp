@@ -60,7 +60,11 @@ class ControleurJeuBridge
         }
     }
 
-
+    /**
+     * Méthode d'affichage principale.
+     * @param $id_ville prend une ville en paramètre (son ID)
+     * @return bool
+     */
     public function couleur_ville($id_ville){
         //echo "retour en haut";
         if($this->etatDeLaPartie()=="perdu")
@@ -115,13 +119,20 @@ class ControleurJeuBridge
     }
 
 
-
+    /**
+     * méthode qui retourne la vue actuelle
+     * @return mixed
+     */
     public function vue_actuelle(){
 
         return $this->TheVue;
     }
 
-
+    /**
+     * Méthode qui gère le fait de lier les villes dans la variable de session.
+     * @param $ville1
+     * @param $ville2
+     */
     public function lierlesVilles($ville1, $ville2)
     {
 
@@ -188,7 +199,9 @@ class ControleurJeuBridge
 }
 
 
-
+    /**
+     * Méthode d'affichage des statistiques.
+     */
     public function afficher_Stats()
     {
 
@@ -207,6 +220,11 @@ class ControleurJeuBridge
         echo "<h4>Vos Statistiques</h4>";
         echo "<p style='text-align: center'>" . $_SESSION['pseudo']. $this->partie_mod->ratio($_SESSION['pseudo']);
     }
+
+    /**
+     * Méthode qui permet de renvoyer la liste des villes.
+     * @return array
+     */
     public function renvoyerLesVilles()
     {
         $nbr=0;
@@ -222,6 +240,10 @@ class ControleurJeuBridge
         return $liste;
     }
 
+    /**
+     * Méthode qui retourne l'état de la partie (en cours, gagner ou perdu)
+     * @return string|void elle renvoit littéralement perdu ou gagner, si c'est vide, c'est que la partie est en cours.
+     */
     public function etatDeLaPartie()
     {
         $ListeDesVilles= $this->renvoyerLesVilles();

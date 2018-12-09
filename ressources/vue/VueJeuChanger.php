@@ -13,6 +13,7 @@ class VueJeuChanger
 
 
     /**
+     * Fonction qui affiche le jeu en cours de jeu.
      * @param $liste_villes tableau de villes passe en parametres
      */
 

@@ -158,6 +158,11 @@ class Partie
 
     }
 
+    /**
+     * Fonction qui compte le nombre de victoire
+     * @param $pseudo du joueur
+     * @return int renvoie le nombre de victoires
+     */
     public function nbr_gagnees($pseudo){
 
         $statement = $this->connexion->prepare("SELECT COUNT(partieGagnee) FROM parties WHERE partieGagnee =1 AND  pseudo=? GROUP BY pseudo");
@@ -169,7 +174,11 @@ class Partie
         return $victoires;
     }
 
-
+    /**
+     * Fonction qui retourne le nombre de parties auxquelles le joueur à jouer.
+     * @param $pseudo du joueur
+     * @return int renvoie le nombre de parties jouées
+     */
     public function nbr_parties($pseudo){
 
         $statement = $this->connexion->prepare("SELECT COUNT(partieGagnee) FROM parties WHERE pseudo=? GROUP BY pseudo");
