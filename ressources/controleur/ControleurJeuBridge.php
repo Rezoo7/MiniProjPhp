@@ -86,7 +86,7 @@ class ControleurJeuBridge
         }
 
         else {
-            //echo "<br/> sinon";
+
             if ((!isset($_SESSION['ville1']) && !isset($_SESSION['ville2'])) || (!empty($_SESSION['ville1']) && empty($_SESSION['ville2']))) {  //si session ville 1 null et session ville 2 null :
                 $_SESSION['ville1'] = $_GET['ville1'];  // IDs enregistrer dans les var sessions
                 $_SESSION['ville2'] = $_GET['ville2'];
@@ -136,16 +136,6 @@ class ControleurJeuBridge
     public function lierlesVilles($ville1, $ville2)
     {
 
-        $xVille1=$_SESSION['listes_villes']->getVillePosX($ville1);
-        $yVille1=$_SESSION['listes_villes']->getVillePosY($ville1);
-        $xVille2=$_SESSION['listes_villes']->getVillePosX($ville2);
-        $yVille2=$_SESSION['listes_villes']->getVillePosY($ville2);
-
-        //echo "<br> " . $ville1 ."Ville 1 :      Nombre de ponts => " . $_SESSION['listes_villes']->getVilleID($ville1)->getNombrePonts();
-        //echo "<br> " . $ville2 ."Ville 2 :      Nombre de ponts => " . $_SESSION['listes_villes']->getVilleID($ville2)->getNombrePonts();
-        //var_dump($_SESSION['listes_villes']);
-
-
         if(!empty($_SESSION['liaison'])) {
             $exist=false;
             $nbr=0;
@@ -170,9 +160,7 @@ class ControleurJeuBridge
 
             if($exist && !$depasserNombre)
             {
-                #var_dump($_SESSION['liaison'][$nbrDefinitif]);
                 $_SESSION['liaison'][$nbrDefinitif][2]++;
-
                 $_SESSION['listes_villes']->getVilleID($ville1)->addPont();
                 $_SESSION['listes_villes']->getVilleID($ville2)->addPont();
 
@@ -193,9 +181,7 @@ class ControleurJeuBridge
             $_SESSION['nbrLiaison']++;
             $_SESSION['listes_villes']->getVilleID($ville1)->addPont();
             $_SESSION['listes_villes']->getVilleID($ville2)->addPont();
-
         }
-        #var_dump($_SESSION['liaison']);
 }
 
 
@@ -204,9 +190,7 @@ class ControleurJeuBridge
      */
     public function afficher_Stats()
     {
-
         $classement = $this->partie_mod->meilleurs_Joueurs();
-
         echo "<h4> Classement des Joueurs : </h4>";
         $place = 1;
 
@@ -216,7 +200,6 @@ class ControleurJeuBridge
             $place++;
             echo $ligne;
         }
-
         echo "<h4>Vos Statistiques</h4>";
         echo "<p style='text-align: center'>" . $_SESSION['pseudo']. $this->partie_mod->ratio($_SESSION['pseudo']);
     }

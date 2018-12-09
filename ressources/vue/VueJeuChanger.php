@@ -61,16 +61,8 @@ class VueJeuChanger
                                         }
 
                                     }
-
-
                                     $ville_id = $laVille->getId();
-
-                                    #echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville1=".$ville_id."&ville2=".$_GET[ville]."><img src=\"".$src_image."\" width='50'></a>";
-
                                     echo "<a href= http://localhost/miniprojphp/ressources/index.php?ville1=" . $ville_id . "&ville2=" . $_GET['ville1'] . "><img src=\"" . $src_image . "\"></a>";
-
-
-
                                 }
 
 
@@ -102,10 +94,8 @@ class VueJeuChanger
                                         }
                                     }
 
-
                                     echo "   ";
-
-                                echo "</td>";
+                                    echo "</td>";
                         }
                           echo"</tr>";
                 }

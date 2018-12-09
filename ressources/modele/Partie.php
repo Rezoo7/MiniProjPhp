@@ -50,7 +50,6 @@ class Partie
             if($ville->getNombrePonts() < $ville->getNombrePontsMax()){
                 return false;
             }
-            //echo "Ville :" . $ville->getNombrePonts() . "Nombre MAX" . $ville->getNombrePontsMax();
         }
         return true;
     }
@@ -61,7 +60,6 @@ class Partie
             if($ville->getNombrePonts() > $ville->getNombrePontsMax()){
                 return true;
             }
-            //echo "Ville :" . $ville->getNombrePonts() . "Nombre MAX" . $ville->getNombrePontsMax();
         }
 
         return false;
