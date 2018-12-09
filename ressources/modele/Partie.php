@@ -138,7 +138,7 @@ class Partie
         }
         else
         {
-            return "vous n'avez jamais joué";
+            return ", vous n'avez jamais joué";
         }
     }
 
